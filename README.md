@@ -63,3 +63,15 @@ TypeScript · React 19 · Vite · Tailwind CSS v4 · Motion · Express · JSZip 
 ## Licença
 
 Distribuído sob a licença MIT. Veja [LICENSE](LICENSE).
+
+## Publicação no portfólio (`/zip-to-git/`)
+
+Este ramo (`integracao-portfolio`) prepara o app para rodar dentro do domínio do portfólio, sem mudar a interface:
+
+- `app.ts` concentra as rotas Express; `server.ts` continua sendo o servidor local (`npm run dev`).
+- `api/index.ts` expõe as mesmas rotas como função serverless da Vercel.
+- `npm run build:portfolio` gera o front-end com base `/zip-to-git/`.
+- **Modo demonstração pública** (ativo automaticamente na Vercel): ignora URL base enviada pelo navegador (evita SSRF), bloqueia provedores locais e não usa as chaves do servidor, a menos que `DEMO_USE_SERVER_KEYS=true`. O visitante usa o próprio token do GitHub e, se quiser, a própria chave de IA; sem chave, a análise local de fallback continua funcionando.
+- Correção de segurança: o `vite.config.ts` deixava variáveis `NVIDIA_*` irem para o JavaScript público. Agora só `VITE_*` vai para o navegador.
+
+Deploy: importe o repositório na Vercel escolhendo o ramo `integracao-portfolio` (ou faça merge na `main`). O `vercel.json` já define build, saída e rotas.

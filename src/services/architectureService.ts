@@ -57,8 +57,6 @@ export async function analyzeProjectArchitecture(
   const localKey =
     localStorage.getItem('ai_api_key') ||
     localStorage.getItem('nvidia_api_key') ||
-    (import.meta as any).env?.NVIDIA_API_KEY ||
-    (import.meta as any).env?.VITE_NVIDIA_API_KEY ||
     '';
   const localBaseUrl = localStorage.getItem('ai_base_url') || '';
   const localModel = localStorage.getItem('ai_model') || '';
@@ -78,7 +76,7 @@ export async function analyzeProjectArchitecture(
     headers['x-ai-model'] = localModel.trim();
   }
 
-  const response = await fetch('/api/analyze-architecture', {
+  const response = await fetch(`${import.meta.env.BASE_URL}api/analyze-architecture`, {
     method: 'POST',
     headers,
     body: JSON.stringify(payload),

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run build:portfolio",
+  "outputDirectory": "dist",
+  "functions": { "api/index.ts": { "maxDuration": 60 } },
+  "redirects": [
+    { "source": "/", "destination": "/zip-to-git/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/zip-to-git/api/:path*", "destination": "/api/index" },
+    { "source": "/api/:path*", "destination": "/api/index" },
+    { "source": "/zip-to-git/:path*", "destination": "/:path*" },
+    { "source": "/zip-to-git", "destination": "/index.html" }
+  ],
+  "headers": [
+    { "source": "/(.*)", "headers": [
+      { "key": "X-Content-Type-Options", "value": "nosniff" },
+      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+    ] }
+  ]
+}

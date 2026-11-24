@@ -5,8 +5,12 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // VITE_BASE=/zip-to-git/ quando o app é publicado dentro do portfólio.
+    base: process.env.VITE_BASE || '/',
     plugins: [react(), tailwindcss()],
-    envPrefix: ['VITE_', 'NVIDIA_'],
+    // Só variáveis VITE_ vão para o navegador. (Antes 'NVIDIA_' também ia, o que
+    // colocava NVIDIA_API_KEY dentro do JavaScript público.)
+    envPrefix: ['VITE_'],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

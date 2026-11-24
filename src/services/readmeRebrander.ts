@@ -169,7 +169,7 @@ export async function rebrandReadmeFile(
     if (baseUrl) headers['x-ai-base-url'] = baseUrl;
     if (model) headers['x-ai-model'] = model;
 
-    const res = await fetch('/api/rebrand-readme', {
+    const res = await fetch(`${import.meta.env.BASE_URL}api/rebrand-readme`, {
       method: 'POST',
       headers,
       body: JSON.stringify({
