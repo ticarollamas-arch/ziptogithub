@@ -47,15 +47,22 @@ export function Header({
           >
             Extrator APK & Binários
           </a>
-          <a
-            href="https://docs.github.com/rest/git"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-white transition-colors shrink-0 flex items-center gap-1"
-          >
-            <span>GitHub Git API</span>
-            <ExternalLink className="w-3 h-3 text-slate-500" />
+          <a href="/precos" className="hover:text-white transition-colors shrink-0">
+            Planos
           </a>
+          <button
+            type="button"
+            onClick={async () => {
+              await fetch('/api/auth?action=logout', {
+                method: 'POST', credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'kit' }, body: '{}',
+              }).catch(() => {});
+              window.location.href = '/entrar';
+            }}
+            className="hover:text-rose-400 transition-colors shrink-0 cursor-pointer"
+          >
+            Sair da conta
+          </button>
           <div className="flex items-center gap-1 text-xs text-slate-400">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
             <span>Processamento local seguro</span>

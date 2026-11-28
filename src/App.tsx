@@ -526,8 +526,8 @@ export default function App() {
             <span>Sem dependência de terminal</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white max-w-3xl leading-tight">
-            Anexe o arquivo ZIP e envie espontaneamente para o GitHub
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white max-w-3xl leading-tight">
+            Anexe o ZIP e publique no GitHub em segundos
           </h1>
 
           <p className="text-slate-400 text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed break-words">
