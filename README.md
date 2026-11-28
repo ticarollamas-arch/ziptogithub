@@ -2,6 +2,10 @@
 
 # ZipToGit — publicação de ZIP no GitHub e análise de arquitetura clean-room
 
+<!-- vercel-demo:start -->
+<p align="center"><a href="https://ziptogithub.vercel.app"><img src="https://img.shields.io/badge/Abrir_o_site-ziptogithub.vercel.app-22D3EE?logo=vercel&logoColor=white&labelColor=0B1220" alt="Abrir o site ziptogithub.vercel.app"></a></p>
+<!-- vercel-demo:end -->
+
 Aplicação full-stack (**React + Vite** no front-end e **Express** no back-end) que **publica o conteúdo de arquivos compactados direto num repositório do GitHub**, pelo navegador, e faz uma **análise técnica clean-room** de pacotes como ZIP e APK. Com um modelo de linguagem, ela gera um relatório de arquitetura e uma especificação para reimplementar o projeto de forma independente, sem copiar código, design ou marcas de terceiros.
 
 ## Recursos
