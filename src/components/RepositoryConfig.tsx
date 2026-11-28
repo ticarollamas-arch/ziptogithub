@@ -54,12 +54,12 @@ export function RepositoryConfig({
   }
 
   return (
-    <div className="bg-[#161b22] border border-[#30363d] rounded-xl p-4 sm:p-6 space-y-5 sm:space-y-6 text-left w-full max-w-full">
+    <div className="bg-[#111c33] border border-[#1e293b] rounded-xl p-4 sm:p-6 space-y-5 sm:space-y-6 text-left w-full max-w-full">
       {/* Header and Automatic Push Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#30363d]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#1e293b]">
         <div>
           <h2 className="text-sm sm:text-base font-semibold text-white flex items-center gap-2">
-            <Settings2 className="w-4 h-4 text-emerald-400" />
+            <Settings2 className="w-4 h-4 text-cyan-400" />
             <span>Configurações do Repositório GitHub</span>
           </h2>
           <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">
@@ -68,12 +68,12 @@ export function RepositoryConfig({
         </div>
 
         {/* Auto-Push switch for the "espontaneamente" behavior */}
-        <label className="flex items-center gap-2.5 p-2 px-3 bg-[#0d1117] border border-[#30363d] rounded-lg cursor-pointer hover:border-emerald-500/50 transition-colors w-full sm:w-auto">
+        <label className="flex items-center gap-2.5 p-2 px-3 bg-[#0b1220] border border-[#1e293b] rounded-lg cursor-pointer hover:border-cyan-500/50 transition-colors w-full sm:w-auto">
           <input
             type="checkbox"
             checked={options.autoPushOnDrop}
             onChange={(e) => updateField('autoPushOnDrop', e.target.checked)}
-            className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0 cursor-pointer shrink-0"
+            className="w-4 h-4 rounded border-[#2a3a57] bg-[#111c33] text-cyan-500 focus:ring-0 cursor-pointer shrink-0"
           />
           <div className="flex items-center gap-1.5">
             <Zap className="w-3.5 h-3.5 text-amber-400 shrink-0" />
@@ -92,11 +92,11 @@ export function RepositoryConfig({
               onClick={() => updateField('isNewRepo', true)}
               className={`p-3 rounded-lg border text-left transition-colors flex items-start gap-3 cursor-pointer ${
                 options.isNewRepo
-                  ? 'border-emerald-500 bg-emerald-500/10 text-white'
-                  : 'border-[#30363d] bg-[#0d1117] text-slate-400 hover:text-slate-200 hover:border-slate-600'
+                  ? 'border-cyan-500 bg-cyan-500/10 text-white'
+                  : 'border-[#1e293b] bg-[#0b1220] text-slate-400 hover:text-slate-200 hover:border-slate-600'
               }`}
             >
-              <FolderPlus className={`w-5 h-5 shrink-0 mt-0.5 ${options.isNewRepo ? 'text-emerald-400' : 'text-slate-500'}`} />
+              <FolderPlus className={`w-5 h-5 shrink-0 mt-0.5 ${options.isNewRepo ? 'text-cyan-400' : 'text-slate-500'}`} />
               <div>
                 <div className="text-xs font-semibold">Criar Novo Repositório</div>
                 <div className="text-[11px] text-slate-400 mt-0.5">
@@ -110,11 +110,11 @@ export function RepositoryConfig({
               onClick={() => updateField('isNewRepo', false)}
               className={`p-3 rounded-lg border text-left transition-colors flex items-start gap-3 cursor-pointer ${
                 !options.isNewRepo
-                  ? 'border-emerald-500 bg-emerald-500/10 text-white'
-                  : 'border-[#30363d] bg-[#0d1117] text-slate-400 hover:text-slate-200 hover:border-slate-600'
+                  ? 'border-cyan-500 bg-cyan-500/10 text-white'
+                  : 'border-[#1e293b] bg-[#0b1220] text-slate-400 hover:text-slate-200 hover:border-slate-600'
               }`}
             >
-              <FolderGit2 className={`w-5 h-5 shrink-0 mt-0.5 ${!options.isNewRepo ? 'text-emerald-400' : 'text-slate-500'}`} />
+              <FolderGit2 className={`w-5 h-5 shrink-0 mt-0.5 ${!options.isNewRepo ? 'text-cyan-400' : 'text-slate-500'}`} />
               <div>
                 <div className="text-xs font-semibold">Repositório Existente</div>
                 <div className="text-[11px] text-slate-400 mt-0.5">
@@ -138,18 +138,18 @@ export function RepositoryConfig({
                 value={options.repoName}
                 onChange={(e) => updateField('repoName', e.target.value)}
                 placeholder="meu-projeto"
-                className="w-full px-3 py-2 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono"
+                className="w-full px-3 py-2 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono"
               />
             </div>
 
             <div>
               <label className="text-xs font-medium text-slate-300 block mb-1">Visibilidade</label>
-              <div className="flex rounded-lg border border-[#30363d] bg-[#0d1117] p-1">
+              <div className="flex rounded-lg border border-[#1e293b] bg-[#0b1220] p-1">
                 <button
                   type="button"
                   onClick={() => updateField('isPrivate', false)}
                   className={`flex-1 py-1 text-xs font-medium rounded-md flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
-                    !options.isPrivate ? 'bg-[#21262d] text-white shadow-xs' : 'text-slate-400 hover:text-slate-200'
+                    !options.isPrivate ? 'bg-[#15223d] text-white shadow-xs' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
                   <Globe className="w-3.5 h-3.5 text-slate-400" />
@@ -159,7 +159,7 @@ export function RepositoryConfig({
                   type="button"
                   onClick={() => updateField('isPrivate', true)}
                   className={`flex-1 py-1 text-xs font-medium rounded-md flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
-                    options.isPrivate ? 'bg-[#21262d] text-white shadow-xs' : 'text-slate-400 hover:text-slate-200'
+                    options.isPrivate ? 'bg-[#15223d] text-white shadow-xs' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
                   <Lock className="w-3.5 h-3.5 text-amber-400" />
@@ -178,7 +178,7 @@ export function RepositoryConfig({
                 value={options.description}
                 onChange={(e) => updateField('description', e.target.value)}
                 placeholder="Repositório criado e enviado via ZipToGit"
-                className="w-full px-3 py-2 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-lg text-sm text-slate-200"
+                className="w-full px-3 py-2 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-lg text-sm text-slate-200"
               />
             </div>
           </div>
@@ -191,7 +191,7 @@ export function RepositoryConfig({
               <button
                 type="button"
                 onClick={onRefreshRepos}
-                className="text-xs text-[#58a6ff] hover:underline cursor-pointer"
+                className="text-xs text-[#22d3ee] hover:underline cursor-pointer"
               >
                 {isLoadingRepos ? 'Atualizando...' : 'Recarregar lista'}
               </button>
@@ -201,7 +201,7 @@ export function RepositoryConfig({
                 id="existing-repo"
                 value={options.repoName}
                 onChange={(e) => updateField('repoName', e.target.value)}
-                className="w-full px-3 py-2 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono"
+                className="w-full px-3 py-2 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono"
               >
                 <option value="">Selecione um repositório...</option>
                 {userRepos.map((r) => (
@@ -216,7 +216,7 @@ export function RepositoryConfig({
                 value={options.repoName}
                 onChange={(e) => updateField('repoName', e.target.value)}
                 placeholder="Nome do repositório (ex: meu-repositorio)"
-                className="w-full px-3 py-2 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono"
+                className="w-full px-3 py-2 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono"
               />
             )}
           </div>
@@ -238,7 +238,7 @@ export function RepositoryConfig({
                 value={options.branch}
                 onChange={(e) => updateField('branch', e.target.value)}
                 placeholder="main"
-                className="w-full pl-8 pr-3 py-2 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono"
+                className="w-full pl-8 pr-3 py-2 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono"
               />
             </div>
           </div>
@@ -257,7 +257,7 @@ export function RepositoryConfig({
                 value={options.commitMessage}
                 onChange={(e) => updateField('commitMessage', e.target.value)}
                 placeholder="feat: upload inicial de arquivos via ZipToGit"
-                className="w-full pl-8 pr-3 py-2 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-lg text-sm text-slate-200"
+                className="w-full pl-8 pr-3 py-2 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-lg text-sm text-slate-200"
               />
             </div>
           </div>
@@ -269,32 +269,32 @@ export function RepositoryConfig({
             Filtros Inteligentes (Smart Ignore)
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <label className="flex items-center gap-2 p-2 rounded-lg bg-[#0d1117] border border-[#30363d] text-xs text-slate-300 cursor-pointer">
+            <label className="flex items-center gap-2 p-2 rounded-lg bg-[#0b1220] border border-[#1e293b] text-xs text-slate-300 cursor-pointer">
               <input
                 type="checkbox"
                 checked={options.ignoreNodeModules}
                 onChange={(e) => updateField('ignoreNodeModules', e.target.checked)}
-                className="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0"
+                className="rounded border-[#2a3a57] bg-[#111c33] text-cyan-500 focus:ring-0"
               />
               <span>Ignorar pastas <code className="text-amber-400 font-mono">node_modules/</code></span>
             </label>
 
-            <label className="flex items-center gap-2 p-2 rounded-lg bg-[#0d1117] border border-[#30363d] text-xs text-slate-300 cursor-pointer">
+            <label className="flex items-center gap-2 p-2 rounded-lg bg-[#0b1220] border border-[#1e293b] text-xs text-slate-300 cursor-pointer">
               <input
                 type="checkbox"
                 checked={options.ignoreGitFolders}
                 onChange={(e) => updateField('ignoreGitFolders', e.target.checked)}
-                className="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0"
+                className="rounded border-[#2a3a57] bg-[#111c33] text-cyan-500 focus:ring-0"
               />
               <span>Ignorar pastas <code className="text-amber-400 font-mono">.git/</code> internas</span>
             </label>
 
-            <label className="flex items-center gap-2 p-2 rounded-lg bg-[#0d1117] border border-[#30363d] text-xs text-slate-300 cursor-pointer">
+            <label className="flex items-center gap-2 p-2 rounded-lg bg-[#0b1220] border border-[#1e293b] text-xs text-slate-300 cursor-pointer">
               <input
                 type="checkbox"
                 checked={options.ignoreEnvFiles}
                 onChange={(e) => updateField('ignoreEnvFiles', e.target.checked)}
-                className="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0"
+                className="rounded border-[#2a3a57] bg-[#111c33] text-cyan-500 focus:ring-0"
               />
               <span className="flex items-center gap-1">
                 <span>Ignorar arquivos confidenciais <code className="text-rose-400 font-mono">.env</code></span>
@@ -302,12 +302,12 @@ export function RepositoryConfig({
               </span>
             </label>
 
-            <label className="flex items-center gap-2 p-2 rounded-lg bg-[#0d1117] border border-[#30363d] text-xs text-slate-300 cursor-pointer">
+            <label className="flex items-center gap-2 p-2 rounded-lg bg-[#0b1220] border border-[#1e293b] text-xs text-slate-300 cursor-pointer">
               <input
                 type="checkbox"
                 checked={options.ignoreOsFiles}
                 onChange={(e) => updateField('ignoreOsFiles', e.target.checked)}
-                className="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0"
+                className="rounded border-[#2a3a57] bg-[#111c33] text-cyan-500 focus:ring-0"
               />
               <span>Ignorar arquivos de sistema (<code className="text-slate-400 font-mono">.DS_Store</code>, etc.)</span>
             </label>
@@ -315,11 +315,11 @@ export function RepositoryConfig({
         </div>
 
         {/* Documentação e Rebranding */}
-        <div className="pt-2 border-t border-[#30363d]/60 space-y-3">
+        <div className="pt-2 border-t border-[#1e293b]/60 space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
               <label className="text-xs font-semibold text-slate-200 flex items-center gap-2">
-                <FileText className="w-3.5 h-3.5 text-emerald-400" />
+                <FileText className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Documentação e Rebranding</span>
               </label>
               <p className="text-[11px] text-slate-400 mt-0.5">
@@ -328,12 +328,12 @@ export function RepositoryConfig({
             </div>
 
             {/* Toggle: Auto-Refatorar README.md */}
-            <label className="flex items-center gap-2 p-1.5 px-2.5 bg-[#0d1117] border border-[#30363d] rounded-lg cursor-pointer hover:border-emerald-500/50 transition-colors w-full sm:w-auto">
+            <label className="flex items-center gap-2 p-1.5 px-2.5 bg-[#0b1220] border border-[#1e293b] rounded-lg cursor-pointer hover:border-cyan-500/50 transition-colors w-full sm:w-auto">
               <input
                 type="checkbox"
                 checked={options.autoRefactorReadme || false}
                 onChange={(e) => updateField('autoRefactorReadme', e.target.checked)}
-                className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0 cursor-pointer shrink-0"
+                className="w-4 h-4 rounded border-[#2a3a57] bg-[#111c33] text-cyan-500 focus:ring-0 cursor-pointer shrink-0"
               />
               <span className="text-xs font-medium text-slate-200">Auto-Refatorar README.md</span>
             </label>
@@ -341,7 +341,7 @@ export function RepositoryConfig({
 
           {/* Expanded Rebranding Controls when enabled */}
           {options.autoRefactorReadme && (
-            <div className="p-3 sm:p-4 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-3">
+            <div className="p-3 sm:p-4 rounded-xl bg-[#0b1220] border border-[#1e293b] space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* Input: Novo Nome do Projeto */}
                 <div>
@@ -354,7 +354,7 @@ export function RepositoryConfig({
                     value={options.rebrandProjectName ?? options.repoName}
                     onChange={(e) => updateField('rebrandProjectName', e.target.value)}
                     placeholder={options.repoName || 'meu-projeto'}
-                    className="w-full px-3 py-1.5 bg-[#161b22] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-lg text-xs text-slate-200 font-mono"
+                    className="w-full px-3 py-1.5 bg-[#111c33] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-lg text-xs text-slate-200 font-mono"
                   />
                   <p className="text-[10px] text-slate-500 mt-1">
                     Substituirá menções antigas pelo nome oficial do seu projeto.
@@ -363,19 +363,19 @@ export function RepositoryConfig({
 
                 {/* Checkbox: Remover Créditos de Terceiros/Marcas */}
                 <div className="flex flex-col justify-center">
-                  <label className="flex items-start gap-2 p-2.5 rounded-lg bg-[#161b22] border border-[#30363d] text-xs text-slate-300 cursor-pointer">
+                  <label className="flex items-start gap-2 p-2.5 rounded-lg bg-[#111c33] border border-[#1e293b] text-xs text-slate-300 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={options.removeBoilerplateCredits !== false}
                       onChange={(e) => updateField('removeBoilerplateCredits', e.target.checked)}
-                      className="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0 mt-0.5 cursor-pointer shrink-0"
+                      className="rounded border-[#2a3a57] bg-[#111c33] text-cyan-500 focus:ring-0 mt-0.5 cursor-pointer shrink-0"
                     />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
                         <span className="font-medium text-slate-200">Remover Créditos de Terceiros/Marcas</span>
                         <div className="relative group cursor-help">
-                          <HelpCircle className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-400 transition-colors" />
-                          <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1.5 hidden group-hover:block w-64 p-2 bg-[#21262d] border border-[#30363d] text-[10px] text-slate-300 rounded shadow-xl z-20 pointer-events-none leading-relaxed">
+                          <HelpCircle className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400 transition-colors" />
+                          <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1.5 hidden group-hover:block w-64 p-2 bg-[#15223d] border border-[#1e293b] text-[10px] text-slate-300 rounded shadow-xl z-20 pointer-events-none leading-relaxed">
                             Faz a limpeza de metadados de geradores de boilerplate (ex: "Generated by X", "Made with Y") e substitui pelo nome do novo projeto.
                           </div>
                         </div>
@@ -390,7 +390,7 @@ export function RepositoryConfig({
 
               {/* Action: Preview README Diff */}
               {hasZip && onPreviewReadme && (
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-[#30363d]/50">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-[#1e293b]/50">
                   <span className="text-[11px] text-slate-400">
                     Pré-visualize o resultado da paráfrase e limpeza antes do envio:
                   </span>
@@ -398,7 +398,7 @@ export function RepositoryConfig({
                     type="button"
                     disabled={isRebrandingReadme}
                     onClick={onPreviewReadme}
-                    className="px-3 py-1.5 text-xs text-emerald-300 hover:text-white bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer font-medium"
+                    className="px-3 py-1.5 text-xs text-cyan-300 hover:text-white bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer font-medium"
                   >
                     {isRebrandingReadme ? (
                       <RefreshCw className="w-3 h-3 animate-spin" />
@@ -420,7 +420,7 @@ export function RepositoryConfig({
           type="button"
           disabled={!canPublish || isPublishing}
           onClick={onTriggerPublish}
-          className="w-full py-3.5 px-4 rounded-lg text-[clamp(0.8rem,2.5vw,0.875rem)] font-semibold text-white bg-[#238636] hover:bg-[#2ea043] disabled:opacity-50 disabled:pointer-events-none transition-all duration-200 flex items-center justify-center gap-2 shadow-lg cursor-pointer text-center"
+          className="w-full py-3.5 px-4 rounded-lg text-[clamp(0.8rem,2.5vw,0.875rem)] font-semibold text-white bg-[#0891b2] hover:bg-[#06b6d4] disabled:opacity-50 disabled:pointer-events-none transition-all duration-200 flex items-center justify-center gap-2 shadow-lg cursor-pointer text-center"
         >
           {isPublishing ? (
             <>
@@ -429,7 +429,7 @@ export function RepositoryConfig({
             </>
           ) : (
             <>
-              <Zap className="w-4 h-4 text-emerald-200" />
+              <Zap className="w-4 h-4 text-cyan-200" />
               <span>
                 {isDemoMode
                   ? 'Executar Publicação Simulada no GitHub'

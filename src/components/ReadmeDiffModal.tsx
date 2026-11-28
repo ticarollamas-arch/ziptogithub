@@ -41,23 +41,23 @@ export function ReadmeDiffModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-xs">
-      <div className="bg-[#161b22] border border-[#30363d] rounded-2xl max-w-4xl w-full p-4 sm:p-6 shadow-2xl relative text-left max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#0b1220]/85 backdrop-blur-xs">
+      <div className="bg-[#111c33] border border-[#1e293b] rounded-2xl max-w-4xl w-full p-4 sm:p-6 shadow-2xl relative text-left max-h-[90vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#30363d] shrink-0">
+        <div className="flex items-center justify-between pb-4 border-b border-[#1e293b] shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
               <FileText className="w-5 h-5" />
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                 <span>Checkpoint: Rebranding & Padronização do README.md</span>
                 {result.isCreated ? (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/15 border border-blue-500/30 text-blue-300">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/30 text-cyan-300">
                     Novo Arquivo Criado
                   </span>
                 ) : (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/30 text-cyan-300">
                     Refatorado & Paráfrase
                   </span>
                 )}
@@ -69,7 +69,7 @@ export function ReadmeDiffModal({
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-[#21262d] transition-colors cursor-pointer"
+            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-[#15223d] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -79,8 +79,8 @@ export function ReadmeDiffModal({
         <div className="py-4 overflow-y-auto flex-1 space-y-4">
           {/* Metrics summary cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <div className="p-3 rounded-xl bg-[#0b1220] border border-[#1e293b] flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
                 <FileText className="w-4 h-4" />
               </div>
               <div>
@@ -91,8 +91,8 @@ export function ReadmeDiffModal({
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#58a6ff]/10 border border-[#58a6ff]/30 flex items-center justify-center text-[#58a6ff] shrink-0">
+            <div className="p-3 rounded-xl bg-[#0b1220] border border-[#1e293b] flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-[#22d3ee]/10 border border-[#22d3ee]/30 flex items-center justify-center text-[#22d3ee] shrink-0">
                 <Tag className="w-4 h-4" />
               </div>
               <div>
@@ -103,7 +103,7 @@ export function ReadmeDiffModal({
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center gap-3">
+            <div className="p-3 rounded-xl bg-[#0b1220] border border-[#1e293b] flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
                 <Eraser className="w-4 h-4" />
               </div>
@@ -117,11 +117,11 @@ export function ReadmeDiffModal({
           </div>
 
           {/* Engine generation notice */}
-          <div className="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-1 text-xs">
+          <div className="p-3.5 rounded-xl bg-[#0b1220] border border-[#1e293b] space-y-1 text-xs">
             <div className="flex items-center gap-2 text-slate-200 font-semibold text-[11px]">
               {result.generationSource === 'ai-llm' ? (
                 <>
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
                   <span>Gerado via Modelo de IA ({result.providerUsed || 'LLM'})</span>
                 </>
               ) : (
@@ -140,12 +140,12 @@ export function ReadmeDiffModal({
 
           {/* View Mode Toggle Bar */}
           <div className="flex items-center justify-between gap-2 pt-1">
-            <div className="flex rounded-lg border border-[#30363d] bg-[#0d1117] p-1 text-xs">
+            <div className="flex rounded-lg border border-[#1e293b] bg-[#0b1220] p-1 text-xs">
               <button
                 type="button"
                 onClick={() => setActiveTab('split')}
                 className={`px-3 py-1 rounded-md transition-colors cursor-pointer ${
-                  activeTab === 'split' ? 'bg-[#21262d] text-white font-medium' : 'text-slate-400 hover:text-white'
+                  activeTab === 'split' ? 'bg-[#15223d] text-white font-medium' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 Comparação Lado a Lado
@@ -154,7 +154,7 @@ export function ReadmeDiffModal({
                 type="button"
                 onClick={() => setActiveTab('refactored')}
                 className={`px-3 py-1 rounded-md transition-colors cursor-pointer ${
-                  activeTab === 'refactored' ? 'bg-[#21262d] text-white font-medium' : 'text-slate-400 hover:text-white'
+                  activeTab === 'refactored' ? 'bg-[#15223d] text-white font-medium' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 Novo README.md
@@ -164,7 +164,7 @@ export function ReadmeDiffModal({
                   type="button"
                   onClick={() => setActiveTab('original')}
                   className={`px-3 py-1 rounded-md transition-colors cursor-pointer ${
-                    activeTab === 'original' ? 'bg-[#21262d] text-white font-medium' : 'text-slate-400 hover:text-white'
+                    activeTab === 'original' ? 'bg-[#15223d] text-white font-medium' : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   Original
@@ -175,17 +175,17 @@ export function ReadmeDiffModal({
             <button
               type="button"
               onClick={handleCopy}
-              className="px-2.5 py-1 text-xs text-slate-400 hover:text-white bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] rounded-md transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="px-2.5 py-1 text-xs text-slate-400 hover:text-white bg-[#15223d] hover:bg-[#1e293b] border border-[#1e293b] rounded-md transition-colors flex items-center gap-1.5 cursor-pointer"
             >
-              {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+              {copied ? <Check className="w-3 h-3 text-cyan-400" /> : <Copy className="w-3 h-3" />}
               <span>{copied ? 'Copiado' : 'Copiar Novo README'}</span>
             </button>
           </div>
 
           {/* Code Viewer */}
-          <div className="border border-[#30363d] rounded-xl overflow-hidden bg-[#0d1117] text-xs font-mono">
+          <div className="border border-[#1e293b] rounded-xl overflow-hidden bg-[#0b1220] text-xs font-mono">
             {activeTab === 'split' ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#30363d] max-h-[380px] overflow-y-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#1e293b] max-h-[380px] overflow-y-auto">
                 {/* Original */}
                 <div className="p-3 space-y-1 bg-red-950/10">
                   <div className="text-[10px] font-semibold text-rose-400 pb-1 border-b border-rose-900/30 flex items-center justify-between">
@@ -197,19 +197,19 @@ export function ReadmeDiffModal({
                 </div>
 
                 {/* Refactored */}
-                <div className="p-3 space-y-1 bg-emerald-950/10">
-                  <div className="text-[10px] font-semibold text-emerald-400 pb-1 border-b border-emerald-900/30 flex items-center justify-between">
+                <div className="p-3 space-y-1 bg-cyan-950/10">
+                  <div className="text-[10px] font-semibold text-cyan-400 pb-1 border-b border-cyan-900/30 flex items-center justify-between">
                     <span>Novo README.md ({projectName})</span>
-                    <span className="text-[10px] text-emerald-300">Padronizado</span>
+                    <span className="text-[10px] text-cyan-300">Padronizado</span>
                   </div>
-                  <pre className="text-emerald-200/90 whitespace-pre-wrap break-all text-[11px] leading-relaxed">
+                  <pre className="text-cyan-200/90 whitespace-pre-wrap break-all text-[11px] leading-relaxed">
                     {result.refactoredContent}
                   </pre>
                 </div>
               </div>
             ) : activeTab === 'refactored' ? (
-              <div className="p-4 max-h-[380px] overflow-y-auto bg-emerald-950/10">
-                <pre className="text-emerald-200/90 whitespace-pre-wrap break-all text-[11px] leading-relaxed">
+              <div className="p-4 max-h-[380px] overflow-y-auto bg-cyan-950/10">
+                <pre className="text-cyan-200/90 whitespace-pre-wrap break-all text-[11px] leading-relaxed">
                   {result.refactoredContent}
                 </pre>
               </div>
@@ -224,11 +224,11 @@ export function ReadmeDiffModal({
         </div>
 
         {/* Footer Actions */}
-        <div className="pt-3 border-t border-[#30363d] flex items-center justify-end gap-2.5 shrink-0">
+        <div className="pt-3 border-t border-[#1e293b] flex items-center justify-end gap-2.5 shrink-0">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-colors border border-[#30363d] cursor-pointer"
+            className="px-4 py-2 bg-[#15223d] hover:bg-[#1e293b] text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-colors border border-[#1e293b] cursor-pointer"
           >
             Fechar
           </button>
@@ -236,7 +236,7 @@ export function ReadmeDiffModal({
             <button
               type="button"
               onClick={onConfirmApply}
-              className="px-4 py-2 bg-[#238636] hover:bg-[#2ea043] text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+              className="px-4 py-2 bg-[#0891b2] hover:bg-[#06b6d4] text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>Aplicar README ao Projeto</span>

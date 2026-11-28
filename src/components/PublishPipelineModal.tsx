@@ -73,12 +73,12 @@ export function PublishPipelineModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xs">
-      <div className="bg-[#161b22] border border-[#30363d] rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative text-left">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0b1220]/85 backdrop-blur-xs">
+      <div className="bg-[#111c33] border border-[#1e293b] rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative text-left">
         {/* Title */}
-        <div className="text-center pb-6 border-b border-[#30363d]">
+        <div className="text-center pb-6 border-b border-[#1e293b]">
           {isCompleted ? (
-            <div className="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
+            <div className="w-14 h-14 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
               <CheckCircle2 className="w-8 h-8" />
             </div>
           ) : isError ? (
@@ -86,8 +86,8 @@ export function PublishPipelineModal({
               <AlertCircle className="w-8 h-8" />
             </div>
           ) : (
-            <div className="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-3">
-              <div className="w-7 h-7 border-3 border-emerald-500/30 border-t-emerald-400 rounded-full animate-spin" />
+            <div className="w-14 h-14 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-7 h-7 border-3 border-cyan-500/30 border-t-emerald-400 rounded-full animate-spin" />
             </div>
           )}
 
@@ -119,9 +119,9 @@ export function PublishPipelineModal({
                   <span>Enviando arquivos ({progress.currentBlob}/{progress.totalBlobs})</span>
                   <span>{blobPercentage}%</span>
                 </div>
-                <div className="w-full bg-[#0d1117] h-2 rounded-full overflow-hidden border border-[#30363d]">
+                <div className="w-full bg-[#0b1220] h-2 rounded-full overflow-hidden border border-[#1e293b]">
                   <div
-                    className="bg-emerald-500 h-full rounded-full transition-all duration-150"
+                    className="bg-cyan-500 h-full rounded-full transition-all duration-150"
                     style={{ width: `${blobPercentage}%` }}
                   />
                 </div>
@@ -143,9 +143,9 @@ export function PublishPipelineModal({
                     key={s.key}
                     className={`flex items-center justify-between p-2.5 rounded-lg text-xs font-mono transition-colors ${
                       status === 'running'
-                        ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
+                        ? 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-300'
                         : status === 'completed'
-                        ? 'bg-[#0d1117] text-slate-300'
+                        ? 'bg-[#0b1220] text-slate-300'
                         : 'opacity-40 text-slate-500'
                     }`}
                   >
@@ -154,10 +154,10 @@ export function PublishPipelineModal({
                       <span>{s.label}</span>
                     </div>
                     {status === 'running' && (
-                      <div className="w-3.5 h-3.5 border-2 border-emerald-400/30 border-t-emerald-400 rounded-full animate-spin shrink-0" />
+                      <div className="w-3.5 h-3.5 border-2 border-cyan-400/30 border-t-emerald-400 rounded-full animate-spin shrink-0" />
                     )}
                     {status === 'completed' && (
-                      <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <Check className="w-4 h-4 text-cyan-400 shrink-0" />
                     )}
                   </div>
                 );
@@ -174,22 +174,22 @@ export function PublishPipelineModal({
                 href={progress.repoUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:border-emerald-500/60 transition-colors flex items-center justify-between group text-white cursor-pointer"
+                className="w-full p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 hover:border-cyan-500/60 transition-colors flex items-center justify-between group text-white cursor-pointer"
               >
                 <div>
-                  <div className="text-xs text-emerald-400 font-medium">Repositório no GitHub</div>
-                  <div className="text-sm font-semibold text-white group-hover:text-emerald-300 flex items-center gap-1.5 mt-0.5">
+                  <div className="text-xs text-cyan-400 font-medium">Repositório no GitHub</div>
+                  <div className="text-sm font-semibold text-white group-hover:text-cyan-300 flex items-center gap-1.5 mt-0.5">
                     <span>{progress.repoUrl.replace('https://github.com/', '')}</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+                    <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
                   </div>
                 </div>
-                <ArrowRight className="w-5 h-5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 text-cyan-400 group-hover:translate-x-1 transition-transform" />
               </a>
             )}
 
             {/* Commit SHA */}
             {progress.commitSha && (
-              <div className="p-3 rounded-lg bg-[#0d1117] border border-[#30363d] flex items-center justify-between">
+              <div className="p-3 rounded-lg bg-[#0b1220] border border-[#1e293b] flex items-center justify-between">
                 <div>
                   <span className="text-[11px] text-slate-500 block">Commit SHA</span>
                   <span className="text-xs font-mono text-slate-300">
@@ -198,9 +198,9 @@ export function PublishPipelineModal({
                 </div>
                 <button
                   onClick={() => copyText(progress.commitSha!, 'sha')}
-                  className="px-2.5 py-1 text-xs text-slate-400 hover:text-white bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] rounded-md transition-colors flex items-center gap-1 cursor-pointer"
+                  className="px-2.5 py-1 text-xs text-slate-400 hover:text-white bg-[#15223d] hover:bg-[#1e293b] border border-[#1e293b] rounded-md transition-colors flex items-center gap-1 cursor-pointer"
                 >
-                  {copiedSha ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                  {copiedSha ? <Check className="w-3 h-3 text-cyan-400" /> : <Copy className="w-3 h-3" />}
                   <span>{copiedSha ? 'Copiado' : 'Copiar'}</span>
                 </button>
               </div>
@@ -210,7 +210,7 @@ export function PublishPipelineModal({
             {progress.repoUrl && (
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-500 font-mono">Clone o repositório localmente:</span>
-                <div className="p-2.5 rounded-lg bg-[#0d1117] border border-[#30363d] flex items-center justify-between font-mono text-xs text-slate-300">
+                <div className="p-2.5 rounded-lg bg-[#0b1220] border border-[#1e293b] flex items-center justify-between font-mono text-xs text-slate-300">
                   <code className="truncate pr-2 select-all">
                     git clone {progress.repoUrl}.git
                   </code>
@@ -219,7 +219,7 @@ export function PublishPipelineModal({
                     className="p-1 text-slate-400 hover:text-white transition-colors cursor-pointer shrink-0"
                     title="Copiar comando"
                   >
-                    {copiedClone ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copiedClone ? <Check className="w-3.5 h-3.5 text-cyan-400" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
               </div>
@@ -238,7 +238,7 @@ export function PublishPipelineModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="w-full py-2.5 bg-[#238636] hover:bg-[#2ea043] text-white rounded-lg text-sm font-medium transition-colors cursor-pointer"
+                className="w-full py-2.5 bg-[#0891b2] hover:bg-[#06b6d4] text-white rounded-lg text-sm font-medium transition-colors cursor-pointer"
               >
                 Concluir e Voltar
               </button>
@@ -253,7 +253,7 @@ export function PublishPipelineModal({
               <div className="font-semibold text-rose-200 flex items-center justify-between">
                 <span>Falha ao processar o envio:</span>
                 {progress.totalBlobs && progress.currentBlob !== undefined && progress.currentBlob > 0 && (
-                  <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  <span className="text-[11px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
                     {progress.currentBlob}/{progress.totalBlobs} salvos no cache
                   </span>
                 )}
@@ -262,7 +262,7 @@ export function PublishPipelineModal({
             </div>
 
             {progress.totalBlobs && progress.currentBlob !== undefined && progress.currentBlob > 0 ? (
-              <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs">
+              <div className="p-3 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs">
                 <span className="font-medium">Envio com Retomada Automática:</span> Os arquivos já enviados foram preservados. Ao clicar em <strong>Continuar Envio</strong>, o processo continuará de onde parou sem reenviar arquivos concluídos.
               </div>
             ) : null}
@@ -280,14 +280,14 @@ export function PublishPipelineModal({
               <button
                 type="button"
                 onClick={onRetry}
-                className="flex-1 py-2.5 bg-[#238636] hover:bg-[#2ea043] text-white rounded-lg text-sm font-medium transition-colors cursor-pointer flex items-center justify-center gap-2"
+                className="flex-1 py-2.5 bg-[#0891b2] hover:bg-[#06b6d4] text-white rounded-lg text-sm font-medium transition-colors cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>{progress.currentBlob && progress.currentBlob > 0 ? 'Continuar Envio' : 'Tentar Novamente'}</span>
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2.5 bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white rounded-lg text-sm font-medium transition-colors cursor-pointer border border-[#30363d]"
+                className="px-4 py-2.5 bg-[#15223d] hover:bg-[#1e293b] text-slate-300 hover:text-white rounded-lg text-sm font-medium transition-colors cursor-pointer border border-[#1e293b]"
               >
                 Fechar
               </button>

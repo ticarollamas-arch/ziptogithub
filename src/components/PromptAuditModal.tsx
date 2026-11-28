@@ -38,10 +38,10 @@ export function PromptAuditModal({
   const currentDiff = showDiffPreview ? auditResult.fileDiffs[selectedFileIndex] : null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-xs">
-      <div className="bg-[#161b22] border border-[#30363d] rounded-2xl max-w-4xl w-full p-4 sm:p-6 shadow-2xl relative text-left max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#0b1220]/85 backdrop-blur-xs">
+      <div className="bg-[#111c33] border border-[#1e293b] rounded-2xl max-w-4xl w-full p-4 sm:p-6 shadow-2xl relative text-left max-h-[90vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#30363d] shrink-0">
+        <div className="flex items-center justify-between pb-4 border-b border-[#1e293b] shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
               <Sliders className="w-5 h-5" />
@@ -61,7 +61,7 @@ export function PromptAuditModal({
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-[#21262d] transition-colors"
+            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-[#15223d] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -78,14 +78,14 @@ export function PromptAuditModal({
                   <span>Aviso de Desenvolvimento & Testes de Resiliência</span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Esta funcionalidade faz uma análise estática dos arquivos de código (<code className="text-amber-200">.py</code>, <code className="text-amber-200">.js</code>, <code className="text-amber-200">Modelfile</code>, <code className="text-amber-200">.json</code>) e refatora prompts fixos para leitura via variáveis de ambiente (<code className="text-emerald-300">os.getenv("CUSTOM_TEST_PROMPT")</code> ou <code className="text-emerald-300">process.env.CUSTOM_TEST_PROMPT</code>).
+                  Esta funcionalidade faz uma análise estática dos arquivos de código (<code className="text-amber-200">.py</code>, <code className="text-amber-200">.js</code>, <code className="text-amber-200">Modelfile</code>, <code className="text-amber-200">.json</code>) e refatora prompts fixos para leitura via variáveis de ambiente (<code className="text-cyan-300">os.getenv("CUSTOM_TEST_PROMPT")</code> ou <code className="text-cyan-300">process.env.CUSTOM_TEST_PROMPT</code>).
                 </p>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   Além disso, chamadas de endpoints de moderação são substituídas por funções <strong className="text-white">mock</strong> seguras para evitar que testes unitários locais quebrem sem conexão de rede.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2 text-xs text-slate-400">
+              <div className="p-4 rounded-xl bg-[#0b1220] border border-[#1e293b] space-y-2 text-xs text-slate-400">
                 <span className="font-semibold text-slate-200 block">Princípios desta Refatoração:</span>
                 <ul className="list-disc pl-4 space-y-1 text-[11px]">
                   <li>
@@ -105,8 +105,8 @@ export function PromptAuditModal({
             <div className="space-y-4">
               {/* Metrics cards */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                <div className="p-3 rounded-xl bg-[#0b1220] border border-[#1e293b] flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
                     <FileCode className="w-4 h-4" />
                   </div>
                   <div>
@@ -117,8 +117,8 @@ export function PromptAuditModal({
                   </div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#58a6ff]/10 border border-[#58a6ff]/30 flex items-center justify-center text-[#58a6ff] shrink-0">
+                <div className="p-3 rounded-xl bg-[#0b1220] border border-[#1e293b] flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#22d3ee]/10 border border-[#22d3ee]/30 flex items-center justify-center text-[#22d3ee] shrink-0">
                     <Code2 className="w-4 h-4" />
                   </div>
                   <div>
@@ -129,7 +129,7 @@ export function PromptAuditModal({
                   </div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center gap-3">
+                <div className="p-3 rounded-xl bg-[#0b1220] border border-[#1e293b] flex items-center gap-3">
                   <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
                     <ShieldAlert className="w-4 h-4" />
                   </div>
@@ -143,14 +143,14 @@ export function PromptAuditModal({
               </div>
 
               {/* Environment finding notice */}
-              <div className="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-1.5 text-xs">
+              <div className="p-3.5 rounded-xl bg-[#0b1220] border border-[#1e293b] space-y-1.5 text-xs">
                 <div className="flex items-center gap-2 text-slate-200 font-semibold text-[11px]">
-                  <Server className="w-3.5 h-3.5 text-emerald-400" />
+                  <Server className="w-3.5 h-3.5 text-cyan-400" />
                   <span>Diagnóstico de Ambiente do Projeto</span>
                   {auditResult.environmentFindings.detectedProviders.map((p) => (
                     <span
                       key={p}
-                      className="text-[10px] px-2 py-0.5 rounded bg-[#21262d] border border-[#30363d] text-emerald-300 font-mono"
+                      className="text-[10px] px-2 py-0.5 rounded bg-[#15223d] border border-[#1e293b] text-cyan-300 font-mono"
                     >
                       {p}
                     </span>
@@ -163,9 +163,9 @@ export function PromptAuditModal({
 
               {/* Diff Viewer */}
               {currentDiff && (
-                <div className="border border-[#30363d] rounded-xl overflow-hidden bg-[#0d1117]">
+                <div className="border border-[#1e293b] rounded-xl overflow-hidden bg-[#0b1220]">
                   {/* File Selector Bar */}
-                  <div className="p-2.5 bg-[#161b22] border-b border-[#30363d] flex items-center gap-2 overflow-x-auto">
+                  <div className="p-2.5 bg-[#111c33] border-b border-[#1e293b] flex items-center gap-2 overflow-x-auto">
                     <span className="text-[11px] text-slate-400 shrink-0 font-medium pl-1">
                       Arquivo:
                     </span>
@@ -175,8 +175,8 @@ export function PromptAuditModal({
                         onClick={() => setSelectedFileIndex(idx)}
                         className={`px-2.5 py-1 text-xs font-mono rounded-md border transition-colors shrink-0 cursor-pointer ${
                           selectedFileIndex === idx
-                            ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300 font-semibold'
-                            : 'bg-[#21262d] border-[#30363d] text-slate-400 hover:text-white'
+                            ? 'bg-cyan-500/15 border-cyan-500/40 text-cyan-300 font-semibold'
+                            : 'bg-[#15223d] border-[#1e293b] text-slate-400 hover:text-white'
                         }`}
                       >
                         {d.path}
@@ -185,7 +185,7 @@ export function PromptAuditModal({
                   </div>
 
                   {/* Code Diff Display */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#30363d] text-xs font-mono max-h-[360px] overflow-y-auto">
+                  <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#1e293b] text-xs font-mono max-h-[360px] overflow-y-auto">
                     {/* Original */}
                     <div className="p-3 space-y-1 bg-red-950/10">
                       <div className="text-[10px] font-semibold text-rose-400 pb-1 border-b border-rose-900/30 flex items-center justify-between">
@@ -197,14 +197,14 @@ export function PromptAuditModal({
                     </div>
 
                     {/* Refactored */}
-                    <div className="p-3 space-y-1 bg-emerald-950/10">
-                      <div className="text-[10px] font-semibold text-emerald-400 pb-1 border-b border-emerald-900/30 flex items-center justify-between">
+                    <div className="p-3 space-y-1 bg-cyan-950/10">
+                      <div className="text-[10px] font-semibold text-cyan-400 pb-1 border-b border-cyan-900/30 flex items-center justify-between">
                         <span>Refatorado (Parametrizado via Env)</span>
-                        <span className="text-[10px] text-emerald-300">
+                        <span className="text-[10px] text-cyan-300">
                           +{currentDiff.abstractedPrompts} prompts · +{currentDiff.mockedCalls} mocks
                         </span>
                       </div>
-                      <pre className="text-emerald-200/90 whitespace-pre-wrap break-all text-[11px] leading-relaxed">
+                      <pre className="text-cyan-200/90 whitespace-pre-wrap break-all text-[11px] leading-relaxed">
                         {currentDiff.refactoredContent}
                       </pre>
                     </div>
@@ -216,11 +216,11 @@ export function PromptAuditModal({
         </div>
 
         {/* Footer Actions */}
-        <div className="pt-3 border-t border-[#30363d] flex flex-wrap items-center justify-end gap-2.5 shrink-0">
+        <div className="pt-3 border-t border-[#1e293b] flex flex-wrap items-center justify-end gap-2.5 shrink-0">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-colors border border-[#30363d] cursor-pointer"
+            className="px-4 py-2 bg-[#15223d] hover:bg-[#1e293b] text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-colors border border-[#1e293b] cursor-pointer"
           >
             Fechar
           </button>
@@ -229,7 +229,7 @@ export function PromptAuditModal({
             <button
               type="button"
               onClick={onConfirmEnable}
-              className="px-4 py-2 bg-[#238636] hover:bg-[#2ea043] text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+              className="px-4 py-2 bg-[#0891b2] hover:bg-[#06b6d4] text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
             >
               <span>Confirmar e Ativar Modo Auditoria</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -238,7 +238,7 @@ export function PromptAuditModal({
             <button
               type="button"
               onClick={onApplyChanges}
-              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+              className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>{isApplied ? 'Alterações Aplicadas ao Projeto' : 'Aplicar Alterações ao Projeto'}</span>

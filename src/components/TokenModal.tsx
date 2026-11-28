@@ -58,8 +58,8 @@ export function TokenModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs">
-      <div className="bg-[#161b22] border border-[#30363d] rounded-xl max-w-lg w-full p-6 shadow-2xl relative text-left">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0b1220]/75 backdrop-blur-xs">
+      <div className="bg-[#111c33] border border-[#1e293b] rounded-xl max-w-lg w-full p-6 shadow-2xl relative text-left">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors cursor-pointer p-1"
@@ -68,7 +68,7 @@ export function TokenModal({
         </button>
 
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-lg bg-[#21262d] border border-[#30363d] flex items-center justify-center text-slate-100">
+          <div className="w-10 h-10 rounded-lg bg-[#15223d] border border-[#1e293b] flex items-center justify-center text-slate-100">
             <Github className="w-5 h-5" />
           </div>
           <div>
@@ -89,7 +89,7 @@ export function TokenModal({
                 href="https://github.com/settings/tokens/new?scopes=repo&description=ZipToGit+AutoPublisher"
                 target="_blank"
                 rel="noreferrer"
-                className="text-xs text-[#58a6ff] hover:underline flex items-center gap-1"
+                className="text-xs text-[#22d3ee] hover:underline flex items-center gap-1"
               >
                 <span>Gerar Token (1-clique com escopo repo)</span>
                 <ExternalLink className="w-3 h-3" />
@@ -109,7 +109,7 @@ export function TokenModal({
                   if (error) setError(null);
                 }}
                 placeholder="ghp_..."
-                className="w-full pl-9 pr-10 py-2.5 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono placeholder:text-slate-600"
+                className="w-full pl-9 pr-10 py-2.5 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-lg text-sm text-slate-200 font-mono placeholder:text-slate-600"
               />
               <button
                 type="button"
@@ -120,7 +120,7 @@ export function TokenModal({
               </button>
             </div>
             <p className="mt-1.5 text-xs text-slate-400">
-              O token precisa ter permissão de <code className="text-[#58a6ff] bg-[#0d1117] px-1 py-0.5 rounded">repo</code> para criar repositórios e enviar commits.
+              O token precisa ter permissão de <code className="text-[#22d3ee] bg-[#0b1220] px-1 py-0.5 rounded">repo</code> para criar repositórios e enviar commits.
             </p>
           </div>
 
@@ -137,14 +137,14 @@ export function TokenModal({
                 type="checkbox"
                 checked={rememberToken}
                 onChange={(e) => setRememberToken(e.target.checked)}
-                className="rounded border-[#30363d] bg-[#0d1117] text-emerald-600 focus:ring-0"
+                className="rounded border-[#1e293b] bg-[#0b1220] text-cyan-600 focus:ring-0"
               />
               <span>Lembrar token neste navegador (localStorage)</span>
             </label>
           </div>
 
-          <div className="p-3 bg-[#0d1117] border border-[#30363d] rounded-lg flex items-start gap-2 text-xs text-slate-400">
-            <Shield className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+          <div className="p-3 bg-[#0b1220] border border-[#1e293b] rounded-lg flex items-start gap-2 text-xs text-slate-400">
+            <Shield className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
             <span>
               <strong>100% Seguro:</strong> Seu token é armazenado apenas no seu navegador e usado estritamente para comunicar diretamente com o GitHub.
             </span>
@@ -154,7 +154,7 @@ export function TokenModal({
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:flex-1 py-2.5 px-4 bg-[#238636] hover:bg-[#2ea043] disabled:opacity-50 text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+              className="w-full sm:flex-1 py-2.5 px-4 bg-[#0891b2] hover:bg-[#06b6d4] disabled:opacity-50 text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
             >
               {loading ? (
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -167,7 +167,7 @@ export function TokenModal({
             <button
               type="button"
               onClick={handleDemoSelect}
-              className="w-full sm:w-auto py-2.5 px-3.5 bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-[#30363d]"
+              className="w-full sm:w-auto py-2.5 px-3.5 bg-[#15223d] hover:bg-[#1e293b] text-slate-300 hover:text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-[#1e293b]"
             >
               <Sparkles className="w-4 h-4 text-amber-400" />
               <span>Modo Simulação</span>

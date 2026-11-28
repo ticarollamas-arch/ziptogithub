@@ -35,7 +35,7 @@ function getFileIcon(ext: string) {
     case 'cpp':
     case 'html':
     case 'css':
-      return <FileCode className="w-4 h-4 text-[#58a6ff]" />;
+      return <FileCode className="w-4 h-4 text-[#22d3ee]" />;
     case 'json':
     case 'yaml':
     case 'yml':
@@ -44,7 +44,7 @@ function getFileIcon(ext: string) {
     case 'md':
     case 'txt':
     case 'rst':
-      return <FileText className="w-4 h-4 text-emerald-400" />;
+      return <FileText className="w-4 h-4 text-cyan-400" />;
     case 'png':
     case 'jpg':
     case 'jpeg':
@@ -87,12 +87,12 @@ export function FileTreeViewer({
   const allSelected = includedCount === nonDirFiles.length && nonDirFiles.length > 0;
 
   return (
-    <div className="bg-[#161b22] border border-[#30363d] rounded-xl overflow-hidden text-left">
+    <div className="bg-[#111c33] border border-[#1e293b] rounded-xl overflow-hidden text-left">
       {/* Header bar */}
-      <div className="p-4 border-b border-[#30363d] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="p-4 border-b border-[#1e293b] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-            <Filter className="w-4 h-4 text-emerald-400" />
+            <Filter className="w-4 h-4 text-cyan-400" />
             <span>Arquivos Extraídos do ZIP</span>
           </h3>
           <div className="text-xs text-slate-400 mt-0.5 font-mono tabular-nums">
@@ -114,14 +114,14 @@ export function FileTreeViewer({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Filtrar arquivos..."
-              className="w-full sm:w-56 pl-8 pr-3 py-1.5 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-md text-xs text-slate-200 placeholder:text-slate-600 font-mono"
+              className="w-full sm:w-56 pl-8 pr-3 py-1.5 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-md text-xs text-slate-200 placeholder:text-slate-600 font-mono"
             />
           </div>
 
           <button
             type="button"
             onClick={() => onToggleAll(!allSelected)}
-            className="w-full sm:w-auto px-2.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+            className="w-full sm:w-auto px-2.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-[#15223d] hover:bg-[#1e293b] border border-[#1e293b] rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
           >
             {allSelected ? (
               <>
@@ -130,7 +130,7 @@ export function FileTreeViewer({
               </>
             ) : (
               <>
-                <CheckSquare className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <CheckSquare className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span>Marcar Todos</span>
               </>
             )}
@@ -154,7 +154,7 @@ export function FileTreeViewer({
       )}
 
       {/* File List */}
-      <div className="max-h-80 overflow-y-auto divide-y divide-[#21262d]">
+      <div className="max-h-80 overflow-y-auto divide-y divide-[#15223d]">
         {filteredFiles.length === 0 ? (
           <div className="py-8 text-center text-xs text-slate-500">
             Nenhum arquivo encontrado com o termo "{search}".
@@ -163,11 +163,11 @@ export function FileTreeViewer({
           filteredFiles.map((file) => (
             <div
               key={file.path}
-              className={`flex items-center justify-between px-4 py-2 hover:bg-[#21262d]/50 transition-colors text-xs ${
+              className={`flex items-center justify-between px-4 py-2 hover:bg-[#15223d]/50 transition-colors text-xs ${
                 file.isOversized
                   ? 'bg-amber-950/10 hover:bg-amber-950/20'
                   : !file.included
-                  ? 'opacity-40 bg-[#0d1117]/50'
+                  ? 'opacity-40 bg-[#0b1220]/50'
                   : ''
               }`}
             >
@@ -176,7 +176,7 @@ export function FileTreeViewer({
                   type="checkbox"
                   checked={file.included}
                   onChange={() => onToggleFile(file.path)}
-                  className="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0 cursor-pointer"
+                  className="rounded border-[#2a3a57] bg-[#111c33] text-cyan-500 focus:ring-0 cursor-pointer"
                 />
                 <span className="shrink-0">{getFileIcon(file.extension)}</span>
                 <span className="font-mono text-slate-200 truncate">{file.path}</span>
@@ -201,7 +201,7 @@ export function FileTreeViewer({
                 <button
                   type="button"
                   onClick={() => onPreviewFile(file)}
-                  className="p-1 text-slate-400 hover:text-[#58a6ff] hover:bg-[#30363d] rounded transition-colors cursor-pointer"
+                  className="p-1 text-slate-400 hover:text-[#22d3ee] hover:bg-[#1e293b] rounded transition-colors cursor-pointer"
                   title="Visualizar conteúdo (amostra segura para arquivos massivos)"
                 >
                   <Eye className="w-3.5 h-3.5" />

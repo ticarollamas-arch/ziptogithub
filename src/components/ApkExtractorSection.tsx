@@ -161,7 +161,7 @@ export function ApkExtractorSection({
     : nonDirFiles;
 
   return (
-    <section className="bg-[#161b22] border border-[#30363d] rounded-2xl p-4 sm:p-7 space-y-5 text-left shadow-lg w-full max-w-full">
+    <section className="bg-[#111c33] border border-[#1e293b] rounded-2xl p-4 sm:p-7 space-y-5 text-left shadow-lg w-full max-w-full">
       <input
         ref={fileInputRef}
         type="file"
@@ -175,9 +175,9 @@ export function ApkExtractorSection({
       />
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#30363d] w-full">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#1e293b] w-full">
         <div className="flex items-start sm:items-center gap-3 min-w-0">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
             <Smartphone className="w-5 h-5" />
           </div>
           <div className="min-w-0 flex-1">
@@ -185,7 +185,7 @@ export function ApkExtractorSection({
               Extrator de APK & Análise para Engenharia Reversa
             </h2>
             <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5 break-words">
-              Anexe pacotes <code className="text-emerald-400 font-mono">.apk</code>, <code className="text-slate-300 font-mono">.zip</code> ou executáveis para extrair todos os arquivos e baixá-los em formato <code className="text-slate-300 font-mono">.zip</code>.
+              Anexe pacotes <code className="text-cyan-400 font-mono">.apk</code>, <code className="text-slate-300 font-mono">.zip</code> ou executáveis para extrair todos os arquivos e baixá-los em formato <code className="text-slate-300 font-mono">.zip</code>.
             </p>
           </div>
         </div>
@@ -194,7 +194,7 @@ export function ApkExtractorSection({
           <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="px-2.5 sm:px-3 py-1.5 text-xs text-slate-300 hover:text-white bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] rounded-md transition-colors cursor-pointer"
+              className="px-2.5 sm:px-3 py-1.5 text-xs text-slate-300 hover:text-white bg-[#15223d] hover:bg-[#1e293b] border border-[#1e293b] rounded-md transition-colors cursor-pointer"
             >
               Trocar Arquivo
             </button>
@@ -214,7 +214,7 @@ export function ApkExtractorSection({
       </div>
 
       {/* Audit & Refactoring Toggle Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-3 sm:p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] w-full">
+      <div className="flex flex-wrap items-center justify-between gap-3 p-3 sm:p-3.5 rounded-xl bg-[#0b1220] border border-[#1e293b] w-full">
         <div className="flex items-center gap-2.5">
           <div className="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
             <Sliders className="w-3.5 h-3.5" />
@@ -225,7 +225,7 @@ export function ApkExtractorSection({
                 type="checkbox"
                 checked={isAuditModeEnabled}
                 onChange={handleToggleAuditMode}
-                className="w-4 h-4 rounded border-[#30363d] text-emerald-500 focus:ring-emerald-500/20 bg-[#161b22] cursor-pointer"
+                className="w-4 h-4 rounded border-[#1e293b] text-cyan-500 focus:ring-cyan-500/20 bg-[#111c33] cursor-pointer"
               />
               <span>Modo Auditoria: Abstrair Prompts e Mockar Filtros</span>
             </label>
@@ -233,7 +233,7 @@ export function ApkExtractorSection({
             {/* Warning Tooltip */}
             <div className="relative group flex items-center cursor-help">
               <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 hover:text-amber-300 transition-colors" />
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover:block w-72 p-2.5 bg-[#161b22] border border-[#30363d] text-[11px] text-slate-300 rounded-lg shadow-xl z-30 pointer-events-none leading-relaxed">
+              <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover:block w-72 p-2.5 bg-[#111c33] border border-[#1e293b] text-[11px] text-slate-300 rounded-lg shadow-xl z-30 pointer-events-none leading-relaxed">
                 <span className="font-semibold text-amber-300 block mb-1">Aviso de Desenvolvimento:</span>
                 Ferramenta de refatoração para testes locais. Altera system prompts para variáveis de ambiente. Não afeta políticas de servidores em nuvem.
               </div>
@@ -244,7 +244,7 @@ export function ApkExtractorSection({
         {/* Status / Checkpoint Trigger Button */}
         <div className="flex items-center gap-2">
           {isAuditApplied && (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>Prompts Abstraídos no Código</span>
             </span>
@@ -298,15 +298,15 @@ export function ApkExtractorSection({
           onClick={() => fileInputRef.current?.click()}
           className={`border-2 border-dashed rounded-xl p-5 sm:p-8 text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-3 w-full max-w-full ${
             isDragOver
-              ? 'border-emerald-500 bg-emerald-500/10 scale-[1.005]'
-              : 'border-[#30363d] hover:border-slate-500 bg-[#0d1117] hover:bg-[#0d1117]/80'
+              ? 'border-cyan-500 bg-cyan-500/10 scale-[1.005]'
+              : 'border-[#1e293b] hover:border-slate-500 bg-[#0b1220] hover:bg-[#0b1220]/80'
           }`}
         >
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#21262d] border border-[#30363d] flex items-center justify-center text-slate-300">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#15223d] border border-[#1e293b] flex items-center justify-center text-slate-300">
             {isProcessing ? (
-              <RefreshCw className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-400 animate-spin" />
+              <RefreshCw className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-400 animate-spin" />
             ) : (
-              <Smartphone className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-400" />
+              <Smartphone className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-400" />
             )}
           </div>
 
@@ -322,16 +322,16 @@ export function ApkExtractorSection({
           </div>
 
           {isProcessing && apkProgress && (
-            <div className="w-full max-w-md px-4 py-2 bg-[#161b22] border border-[#30363d] rounded-lg space-y-1.5 text-left">
+            <div className="w-full max-w-md px-4 py-2 bg-[#111c33] border border-[#1e293b] rounded-lg space-y-1.5 text-left">
               <div className="flex items-center justify-between text-[11px] font-mono text-slate-300">
                 <span className="truncate pr-2">
                   {apkProgress.processed} / {apkProgress.total} arquivos
                 </span>
-                <span className="text-emerald-400 font-semibold">{apkProgress.percent}%</span>
+                <span className="text-cyan-400 font-semibold">{apkProgress.percent}%</span>
               </div>
-              <div className="w-full bg-[#21262d] rounded-full h-1.5 overflow-hidden">
+              <div className="w-full bg-[#15223d] rounded-full h-1.5 overflow-hidden">
                 <div
-                  className="bg-emerald-500 h-1.5 rounded-full transition-all duration-150"
+                  className="bg-cyan-500 h-1.5 rounded-full transition-all duration-150"
                   style={{ width: `${Math.max(5, apkProgress.percent)}%` }}
                 />
               </div>
@@ -351,7 +351,7 @@ export function ApkExtractorSection({
                 e.stopPropagation();
                 handleSampleApk();
               }}
-              className="px-2.5 py-1 text-xs font-medium text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-md transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="px-2.5 py-1 text-xs font-medium text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 rounded-md transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5 shrink-0" />
               <span>Usar APK de Demonstração</span>
@@ -361,10 +361,10 @@ export function ApkExtractorSection({
       ) : (
         <div className="space-y-5 w-full max-w-full">
           {/* APK Overview Metrics Card */}
-          <div className="p-4 sm:p-5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-4 w-full max-w-full">
+          <div className="p-4 sm:p-5 rounded-xl bg-[#0b1220] border border-[#1e293b] space-y-4 w-full max-w-full">
             <div className="flex flex-col gap-4">
               <div className="flex items-start sm:items-center gap-3 min-w-0">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
                   <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -372,11 +372,11 @@ export function ApkExtractorSection({
                     <span className="text-sm sm:text-base font-bold text-white truncate max-w-full">
                       {apkMeta.fileName}
                     </span>
-                    <span className="text-[10px] sm:text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2 py-0.5 rounded truncate max-w-full">
+                    <span className="text-[10px] sm:text-xs font-mono text-cyan-400 bg-cyan-950/60 border border-cyan-800/40 px-2 py-0.5 rounded truncate max-w-full">
                       {apkMeta.detectedType}
                     </span>
                     {apkMeta.formatInfo && (
-                      <span className="text-[10px] font-mono text-slate-400 bg-[#21262d] border border-[#30363d] px-1.5 py-0.5 rounded">
+                      <span className="text-[10px] font-mono text-slate-400 bg-[#15223d] border border-[#1e293b] px-1.5 py-0.5 rounded">
                         Magic: {apkMeta.formatInfo.magicHex}
                       </span>
                     )}
@@ -392,12 +392,12 @@ export function ApkExtractorSection({
               </div>
 
               {/* Main Actions: Mobile full width & wrap */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-2 border-t border-[#30363d]/60 w-full">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-2 border-t border-[#1e293b]/60 w-full">
                 <button
                   type="button"
                   disabled={isDownloading}
                   onClick={handleDownloadZip}
-                  className="w-full sm:w-auto px-3.5 py-2.5 bg-[#238636] hover:bg-[#2ea043] disabled:opacity-50 text-white rounded-lg text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm min-h-[38px] text-center"
+                  className="w-full sm:w-auto px-3.5 py-2.5 bg-[#0891b2] hover:bg-[#06b6d4] disabled:opacity-50 text-white rounded-lg text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm min-h-[38px] text-center"
                 >
                   {isDownloading ? (
                     <RefreshCw className="w-4 h-4 animate-spin shrink-0" />
@@ -422,10 +422,10 @@ export function ApkExtractorSection({
                 <button
                   type="button"
                   onClick={() => onTransferToGitHub(apkMeta)}
-                  className="w-full sm:w-auto px-3.5 py-2.5 bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white rounded-lg text-xs font-medium transition-colors border border-[#30363d] flex items-center justify-center gap-1.5 cursor-pointer min-h-[38px] text-center"
+                  className="w-full sm:w-auto px-3.5 py-2.5 bg-[#15223d] hover:bg-[#1e293b] text-slate-200 hover:text-white rounded-lg text-xs font-medium transition-colors border border-[#1e293b] flex items-center justify-center gap-1.5 cursor-pointer min-h-[38px] text-center"
                   title="Carregar estes arquivos na seção de envio para o GitHub"
                 >
-                  <Send className="w-3.5 h-3.5 text-[#58a6ff] shrink-0" />
+                  <Send className="w-3.5 h-3.5 text-[#22d3ee] shrink-0" />
                   <span>Enviar para o GitHub</span>
                 </button>
               </div>
@@ -434,7 +434,7 @@ export function ApkExtractorSection({
             {/* Component Discovery Grid */}
             {apkMeta.apkAnalysis && (
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-                <div className="p-2.5 sm:p-3 rounded-lg bg-[#161b22] border border-[#30363d] space-y-1">
+                <div className="p-2.5 sm:p-3 rounded-lg bg-[#111c33] border border-[#1e293b] space-y-1">
                   <div className="flex items-center gap-1 text-[11px] sm:text-xs text-slate-400">
                     <Binary className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                     <span className="truncate">Bytecode Dalvik</span>
@@ -444,9 +444,9 @@ export function ApkExtractorSection({
                   </div>
                 </div>
 
-                <div className="p-2.5 sm:p-3 rounded-lg bg-[#161b22] border border-[#30363d] space-y-1">
+                <div className="p-2.5 sm:p-3 rounded-lg bg-[#111c33] border border-[#1e293b] space-y-1">
                   <div className="flex items-center gap-1 text-[11px] sm:text-xs text-slate-400">
-                    <Cpu className="w-3.5 h-3.5 text-[#58a6ff] shrink-0" />
+                    <Cpu className="w-3.5 h-3.5 text-[#22d3ee] shrink-0" />
                     <span className="truncate">Bibliotecas .so</span>
                   </div>
                   <div className="text-xs sm:text-sm font-semibold font-mono text-white tabular-nums truncate">
@@ -454,9 +454,9 @@ export function ApkExtractorSection({
                   </div>
                 </div>
 
-                <div className="p-2.5 sm:p-3 rounded-lg bg-[#161b22] border border-[#30363d] space-y-1">
+                <div className="p-2.5 sm:p-3 rounded-lg bg-[#111c33] border border-[#1e293b] space-y-1">
                   <div className="flex items-center gap-1 text-[11px] sm:text-xs text-slate-400">
-                    <FileCode className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <FileCode className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                     <span className="truncate">Manifesto</span>
                   </div>
                   <div className="text-xs sm:text-sm font-semibold font-mono text-white truncate">
@@ -464,7 +464,7 @@ export function ApkExtractorSection({
                   </div>
                 </div>
 
-                <div className="p-2.5 sm:p-3 rounded-lg bg-[#161b22] border border-[#30363d] space-y-1">
+                <div className="p-2.5 sm:p-3 rounded-lg bg-[#111c33] border border-[#1e293b] space-y-1">
                   <div className="flex items-center gap-1 text-[11px] sm:text-xs text-slate-400">
                     <Layers className="w-3.5 h-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">Assets</span>
@@ -478,8 +478,8 @@ export function ApkExtractorSection({
           </div>
 
           {/* Files Explorer inside APK */}
-          <div className="border border-[#30363d] rounded-xl overflow-hidden bg-[#0d1117] w-full max-w-full">
-            <div className="p-3 bg-[#161b22] border-b border-[#30363d] flex flex-wrap items-center justify-between gap-2.5">
+          <div className="border border-[#1e293b] rounded-xl overflow-hidden bg-[#0b1220] w-full max-w-full">
+            <div className="p-3 bg-[#111c33] border-b border-[#1e293b] flex flex-wrap items-center justify-between gap-2.5">
               <span className="text-xs font-semibold text-slate-200">
                 Arquivos Extraídos ({filteredFiles.length})
               </span>
@@ -490,12 +490,12 @@ export function ApkExtractorSection({
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Buscar arquivo..."
-                  className="pl-7 pr-3 py-1 bg-[#0d1117] border border-[#30363d] focus:border-[#58a6ff] focus:outline-hidden rounded-md text-xs text-slate-200 placeholder:text-slate-600 font-mono w-full sm:w-60"
+                  className="pl-7 pr-3 py-1 bg-[#0b1220] border border-[#1e293b] focus:border-[#22d3ee] focus:outline-hidden rounded-md text-xs text-slate-200 placeholder:text-slate-600 font-mono w-full sm:w-60"
                 />
               </div>
             </div>
 
-            <div className="max-h-64 overflow-y-auto divide-y divide-[#21262d]">
+            <div className="max-h-64 overflow-y-auto divide-y divide-[#15223d]">
               {filteredFiles.length === 0 ? (
                 <div className="py-6 text-center text-xs text-slate-500">
                   Nenhum arquivo encontrado com o termo "{search}".
@@ -504,15 +504,15 @@ export function ApkExtractorSection({
                 filteredFiles.map((file) => (
                   <div
                     key={file.path}
-                    className="flex items-center justify-between px-3 sm:px-4 py-2 hover:bg-[#161b22] transition-colors text-xs gap-2"
+                    className="flex items-center justify-between px-3 sm:px-4 py-2 hover:bg-[#111c33] transition-colors text-xs gap-2"
                   >
                     <div className="flex items-center gap-2 min-w-0 flex-1 pr-2">
                       {file.path.endsWith('.dex') ? (
                         <Binary className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                       ) : file.path.endsWith('.so') ? (
-                        <Cpu className="w-3.5 h-3.5 text-[#58a6ff] shrink-0" />
+                        <Cpu className="w-3.5 h-3.5 text-[#22d3ee] shrink-0" />
                       ) : file.path.endsWith('.xml') ? (
-                        <FileCode className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <FileCode className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                       ) : (
                         <FileCheck className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                       )}
@@ -526,7 +526,7 @@ export function ApkExtractorSection({
                       <button
                         type="button"
                         onClick={() => onPreviewFile(file)}
-                        className="p-1 text-slate-400 hover:text-[#58a6ff] hover:bg-[#30363d] rounded transition-colors cursor-pointer"
+                        className="p-1 text-slate-400 hover:text-[#22d3ee] hover:bg-[#1e293b] rounded transition-colors cursor-pointer"
                         title="Inspecionar conteúdo"
                       >
                         <Eye className="w-3.5 h-3.5" />

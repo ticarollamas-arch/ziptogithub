@@ -1,0 +1,41 @@
+/* CyberHuntLab kit v2 — só a moldura (cabeçalho, banner, rodapé) para apps que já têm interface própria */
+:root {
+  --bg: #0b1220; --bg-2: #0e1729; --panel: #111c33; --panel-2: #15223d;
+  --line: #1e293b; --line-2: #2a3a57;
+  --text: #e6edf7; --muted: #94a3b8; --dim: #64748b;
+  --cyan: #22d3ee; --violet: #8b5cf6; --ok: #34d399; --warn: #fbbf24; --bad: #f87171;
+  --grad: linear-gradient(90deg, var(--cyan), var(--violet));
+  --r: 10px; --r-lg: 14px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  --mono: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+body.chl { margin: 0; background-color: var(--bg); overflow-x: hidden; }
+.chl-top, .chl-banner, .chl-foot { font: 15px/1.6 var(--font); color: var(--text); }
+.chl-top a, .chl-foot a { text-decoration: none; }
+.chl-wrap { width: min(1080px, 100% - 2rem); margin-inline: auto; box-sizing: border-box; }
+.chl-top *, .chl-banner *, .chl-foot * { box-sizing: border-box; }
+/* ---------- cabeçalho compacto + hambúrguer ---------- */
+.chl-top { position: sticky; top: 0; z-index: 50; background: rgb(11 18 32 / .88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.chl-top .chl-wrap { display: flex; align-items: center; gap: .75rem; height: 56px; }
+.chl-brand { display: flex; align-items: center; gap: .55rem; color: var(--text) !important; font-weight: 700; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chl-brand:hover { text-decoration: none !important; }
+.chl-mark { flex: none; width: 28px; height: 28px; }
+.chl-nav { display: flex; gap: .15rem; margin-left: auto; align-items: center; }
+.chl-nav a { color: var(--muted) !important; padding: .35rem .65rem; border-radius: 8px; font-size: .875rem; }
+.chl-nav a:hover, .chl-nav a[aria-current="page"] { color: var(--text) !important; background: var(--panel); text-decoration: none !important; }
+.chl-burger { display: none; margin-left: auto; width: 38px; height: 38px; border: 1px solid var(--line-2); border-radius: 9px; background: var(--panel); color: var(--text); cursor: pointer; align-items: center; justify-content: center; }
+.chl-burger svg { width: 18px; height: 18px; }
+@media (max-width: 759px) {
+  .chl-burger { display: inline-flex; }
+  .chl-nav { display: none; position: absolute; left: 0; right: 0; top: 56px; flex-direction: column; align-items: stretch; gap: 0; padding: .4rem 1rem .8rem; background: var(--bg-2); border-bottom: 1px solid var(--line); }
+  .chl-nav.open { display: flex; }
+  .chl-nav a { padding: .65rem .5rem; font-size: .95rem; border-radius: 8px; }
+}
+
+/* ---------- banner do projeto ---------- */
+.chl-banner { padding: 1rem 0 .25rem; }
+.chl-banner img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); border: 1px solid var(--line); }
+
+.chl-foot { border-top: 1px solid var(--line); margin-top: 2rem; padding: 1.2rem 0; color: var(--dim); font-size: .8rem; }
+.chl-foot .chl-wrap { display: flex; gap: .75rem; flex-wrap: wrap; justify-content: space-between; }

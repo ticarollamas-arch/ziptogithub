@@ -125,15 +125,15 @@ export function ZipDropzone({
           onDrop={handleDrop}
           className={`border-2 border-dashed rounded-xl p-5 sm:p-7 text-center transition-all flex flex-col items-center justify-center gap-3 w-full max-w-full ${
             isDragOver
-              ? 'border-emerald-500 bg-emerald-500/10 scale-[1.005]'
-              : 'border-[#30363d] hover:border-slate-500 bg-[#161b22]/70 hover:bg-[#161b22]'
+              ? 'border-cyan-500 bg-cyan-500/10 scale-[1.005]'
+              : 'border-[#1e293b] hover:border-slate-500 bg-[#111c33]/70 hover:bg-[#111c33]'
           }`}
         >
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#21262d] border border-[#30363d] flex items-center justify-center text-slate-300">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#15223d] border border-[#1e293b] flex items-center justify-center text-slate-300">
             {isLoadingZip ? (
-              <RefreshCw className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-400 animate-spin" />
+              <RefreshCw className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-400 animate-spin" />
             ) : (
-              <UploadCloud className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-400" />
+              <UploadCloud className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-400" />
             )}
           </div>
 
@@ -152,16 +152,16 @@ export function ZipDropzone({
 
           {/* Real-time Progress Bar for 700MB+ archives and folders */}
           {isLoadingZip && parseProgress && (
-            <div className="w-full max-w-md px-4 py-2 bg-[#0d1117] border border-[#30363d] rounded-lg space-y-1.5 text-left">
+            <div className="w-full max-w-md px-4 py-2 bg-[#0b1220] border border-[#1e293b] rounded-lg space-y-1.5 text-left">
               <div className="flex items-center justify-between text-[11px] font-mono text-slate-300">
                 <span className="truncate pr-2">
                   {parseProgress.processed} / {parseProgress.total} arquivos
                 </span>
-                <span className="text-emerald-400 font-semibold">{parseProgress.percent}%</span>
+                <span className="text-cyan-400 font-semibold">{parseProgress.percent}%</span>
               </div>
-              <div className="w-full bg-[#21262d] rounded-full h-1.5 overflow-hidden">
+              <div className="w-full bg-[#15223d] rounded-full h-1.5 overflow-hidden">
                 <div
-                  className="bg-emerald-500 h-1.5 rounded-full transition-all duration-150"
+                  className="bg-cyan-500 h-1.5 rounded-full transition-all duration-150"
                   style={{ width: `${Math.max(5, parseProgress.percent)}%` }}
                 />
               </div>
@@ -179,7 +179,7 @@ export function ZipDropzone({
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="px-3.5 py-2 text-xs font-semibold text-white bg-[#238636] hover:bg-[#2ea043] rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                className="px-3.5 py-2 text-xs font-semibold text-white bg-[#0891b2] hover:bg-[#06b6d4] rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               >
                 <FileCode className="w-3.5 h-3.5 shrink-0" />
                 <span>Selecionar Arquivo (.zip / .apk)</span>
@@ -188,7 +188,7 @@ export function ZipDropzone({
               <button
                 type="button"
                 onClick={() => folderInputRef.current?.click()}
-                className="px-3.5 py-2 text-xs font-semibold text-slate-200 bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                className="px-3.5 py-2 text-xs font-semibold text-slate-200 bg-[#15223d] hover:bg-[#1e293b] border border-[#1e293b] rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                 title="Selecione uma pasta inteira no seu computador"
               >
                 <FolderUp className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
@@ -207,9 +207,9 @@ export function ZipDropzone({
           )}
         </div>
       ) : (
-        <div className="bg-[#161b22] border border-[#30363d] rounded-xl p-4 sm:p-5 flex flex-col gap-4 w-full max-w-full">
+        <div className="bg-[#111c33] border border-[#1e293b] rounded-xl p-4 sm:p-5 flex flex-col gap-4 w-full max-w-full">
           <div className="flex items-start sm:items-center gap-3 min-w-0">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
               <FolderArchive className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div className="min-w-0 flex-1">
@@ -217,7 +217,7 @@ export function ZipDropzone({
                 <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">
                   {currentZip.fileName}
                 </span>
-                <span className="text-[10px] sm:text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2 py-0.5 rounded truncate max-w-full">
+                <span className="text-[10px] sm:text-xs font-mono text-cyan-400 bg-cyan-950/60 border border-cyan-800/40 px-2 py-0.5 rounded truncate max-w-full">
                   {currentZip.detectedType}
                 </span>
                 {currentZip.isNestedArchive && (
@@ -237,7 +237,7 @@ export function ZipDropzone({
           </div>
 
           {/* Action buttons with flex-wrap and responsive sizing */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-2 border-t border-[#30363d]/60 w-full">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-2 border-t border-[#1e293b]/60 w-full">
             {onOpenArchitecture && (
               <button
                 type="button"
@@ -252,7 +252,7 @@ export function ZipDropzone({
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="w-full sm:w-auto px-3 py-2 text-xs text-slate-300 hover:text-white bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] rounded-md transition-colors cursor-pointer min-h-[36px] text-center"
+              className="w-full sm:w-auto px-3 py-2 text-xs text-slate-300 hover:text-white bg-[#15223d] hover:bg-[#1e293b] border border-[#1e293b] rounded-md transition-colors cursor-pointer min-h-[36px] text-center"
             >
               Trocar Arquivo
             </button>

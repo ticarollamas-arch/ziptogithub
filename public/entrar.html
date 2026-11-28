@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Entrar</title>
+  <link rel="stylesheet" href="/chl/chl.css">
+  <script src="/chl/config.js"></script>
+  <script src="/chl/chl.js" defer></script>
+</head>
+<body class="chl" data-chl-banner="off">
+  <main class="chl-section">
+    <div class="chl-narrow">
+      <div class="card stack" style="text-align:center">
+        <h1 style="font-size:1.25rem">Entrar</h1>
+        <p class="muted small" id="lead">Use sua conta Google para acessar.</p>
+        <div id="msg" class="alert hidden" role="alert"></div>
+        <div id="gbtn" style="display:flex;justify-content:center;min-height:44px"></div>
+        <div id="me" class="hidden stack">
+          <p class="small" id="me-text"></p>
+          <div class="row" style="justify-content:center">
+            <a class="btn btn-primary btn-sm" id="go-app" href="/">Abrir ferramenta</a>
+            <a class="btn btn-sm hidden" id="go-admin" href="/admin">Painel admin</a>
+            <button class="btn btn-sm" id="logout" type="button">Sair</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+  (function () {
+    var msg = document.getElementById('msg');
+    function show(t, ok) { msg.textContent = t; msg.className = 'alert ' + (ok ? 'ok' : 'err'); }
+    function signedIn(u) {
+      document.getElementById('gbtn').classList.add('hidden');
+      document.getElementById('lead').classList.add('hidden');
+      document.getElementById('me').classList.remove('hidden');
+      document.getElementById('me-text').textContent = 'Conectada como ' + (u.name || u.email) + ' (' + u.email + ')';
+      document.getElementById('go-app').href = (window.CHL && window.CHL.app) || '/';
+      if (u.role === 'admin') document.getElementById('go-admin').classList.remove('hidden');
+    }
+    function onCredential(r) {
+      window.CHL_API('google', { credential: r.credential }).then(function (j) {
+        signedIn(j.user);
+        if (j.user.role === 'admin' && /next=admin/.test(location.search)) location.href = '/admin';
+      }).catch(function (e) { show(e.message); });
+    }
+    document.getElementById('logout').addEventListener('click', function () {
+      window.CHL_API('logout', {}).then(function () { location.reload(); });
+    });
+    function init() {
+      fetch('/api/chl?action=me').then(function (r) { return r.ok ? r.json() : {}; }).then(function (j) {
+        if (j.user) return signedIn(j.user);
+        return fetch('/api/chl?action=config').then(function (r) { return r.json(); }).then(function (c) {
+          if (!c.ready) return show('O login com Google ainda não foi configurado neste projeto.');
+          var s = document.createElement('script');
+          s.src = 'https://accounts.google.com/gsi/client'; s.async = true;
+          s.onload = function () {
+            google.accounts.id.initialize({ client_id: c.googleClientId, callback: onCredential, ux_mode: 'popup' });
+            google.accounts.id.renderButton(document.getElementById('gbtn'), { theme: 'filled_black', size: 'large', shape: 'pill', text: 'signin_with', locale: 'pt-BR' });
+          };
+          document.head.appendChild(s);
+        });
+      }).catch(function () { show('Não foi possível falar com o servidor.'); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  })();
+  </script>
+</body>
+</html>

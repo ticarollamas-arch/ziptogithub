@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/chl/chl.css">
+  <script src="/chl/config.js"></script>
+  <script src="/chl/chl.js" defer></script>
+</head>
+<body class="chl" data-chl-banner="off">
+  <main class="chl-section">
+    <div class="chl-wrap stack">
+      <div class="row"><h1 style="margin:0">Painel admin</h1><span class="chip" id="who"></span></div>
+      <div id="msg" class="alert hidden" role="alert"></div>
+      <div id="panel" class="hidden stack">
+        <div class="grid grid-3">
+          <div class="card"><p class="small muted" style="margin:0">Usuários</p><p class="stat" id="n-users" style="margin:.3rem 0 0">—</p></div>
+          <div class="card"><p class="small muted" style="margin:0">Logins (total)</p><p class="stat" id="n-logins" style="margin:.3rem 0 0">—</p></div>
+          <div class="card"><p class="small muted" style="margin:0">Ambiente</p><p class="stat" id="dep" style="margin:.3rem 0 0;font-size:1rem">—</p></div>
+        </div>
+        <div class="card">
+          <h2>Configuração</h2>
+          <div class="table-wrap"><table class="table" id="env"><tbody></tbody></table></div>
+        </div>
+        <div class="card">
+          <h2>Usuários que entraram</h2>
+          <p class="small muted" id="no-kv" style="display:none">Para listar usuários, conecte um banco KV (Upstash/Vercel KV) ao projeto.</p>
+          <div class="table-wrap"><table class="table" id="users"><thead><tr><th>E-mail</th><th>Nome</th><th>Último acesso</th><th>Logins</th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+  (function () {
+    var msg = document.getElementById('msg');
+    function show(t) { msg.textContent = t; msg.className = 'alert err'; }
+    function td(t) { var d = document.createElement('td'); d.textContent = t; return d; }
+    function init() {
+      fetch('/api/chl?action=me').then(function (r) { return r.ok ? r.json() : {}; }).then(function (j) {
+        if (!j.user) { location.href = '/entrar?next=admin'; return; }
+        if (j.user.role !== 'admin') return show('Esta conta não tem acesso ao painel. Peça para incluir seu e-mail em ADMIN_EMAILS.');
+        document.getElementById('who').textContent = j.user.email;
+        document.getElementById('panel').classList.remove('hidden');
+        window.CHL_API('status').then(function (s) {
+          var tb = document.querySelector('#env tbody');
+          var rows = [['Google Client ID', s.env.GOOGLE_CLIENT_ID], ['Segredo da sessão', s.env.CHL_SESSION_SECRET], ['Admins definidos', s.env.ADMIN_EMAILS > 0], ['Banco KV', s.env.KV]];
+          rows.forEach(function (r) {
+            var tr = document.createElement('tr'); tr.appendChild(td(r[0]));
+            var c = document.createElement('td'); c.innerHTML = '<span class="dot ' + (r[1] ? 'on' : 'off') + '"></span>'; c.appendChild(document.createTextNode(r[1] ? 'ok' : 'pendente'));
+            tr.appendChild(c); tb.appendChild(tr);
+          });
+          document.getElementById('dep').textContent = s.deployment.env + (s.deployment.commit ? ' · ' + s.deployment.commit : '');
+        }).catch(function (e) { show(e.message); });
+        window.CHL_API('users').then(function (u) {
+          if (!u.storage) document.getElementById('no-kv').style.display = 'block';
+          document.getElementById('n-users').textContent = u.users.length;
+          document.getElementById('n-logins').textContent = u.users.reduce(function (a, x) { return a + (x.logins || 0); }, 0);
+          var tb = document.querySelector('#users tbody');
+          u.users.forEach(function (x) {
+            var tr = document.createElement('tr');
+            tr.appendChild(td(x.email)); tr.appendChild(td(x.name || '—'));
+            tr.appendChild(td(x.last ? new Date(x.last).toLocaleString('pt-BR') : '—')); tr.appendChild(td(x.logins || 0));
+            tb.appendChild(tr);
+          });
+        }).catch(function (e) { show(e.message); });
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  })();
+  </script>
+</body>
+</html>

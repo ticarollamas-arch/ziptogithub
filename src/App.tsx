@@ -504,7 +504,7 @@ export default function App() {
   const canPublish = !!currentZip && (!!token || isDemoMode);
 
   return (
-    <div className="min-h-screen bg-[#0d1117] text-[#e6edf3] flex flex-col font-sans selection:bg-emerald-500/30 w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-[#0b1220] text-[#e6edf3] flex flex-col font-sans selection:bg-cyan-500/30 w-full max-w-full overflow-x-hidden">
       {/* Top Bar Contract (3 zones) */}
       <Header
         user={user}
@@ -531,7 +531,7 @@ export default function App() {
           </h1>
 
           <p className="text-slate-400 text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed break-words">
-            Solte qualquer projeto compactado em <code className="text-emerald-400 font-mono">.zip</code>. O ZipToGit extrai os arquivos no navegador, filtra dependências pesadas e publica os commits diretamente no seu repositório GitHub em segundos.
+            Solte qualquer projeto compactado em <code className="text-cyan-400 font-mono">.zip</code>. O ZipToGit extrai os arquivos no navegador, filtra dependências pesadas e publica os commits diretamente no seu repositório GitHub em segundos.
           </p>
 
           {!user && !isDemoMode && (
@@ -539,7 +539,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setIsTokenModalOpen(true)}
-                className="w-full sm:w-auto px-4 py-2.5 bg-[#238636] hover:bg-[#2ea043] text-white text-[clamp(0.75rem,2.5vw,0.8rem)] font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
+                className="w-full sm:w-auto px-4 py-2.5 bg-[#0891b2] hover:bg-[#06b6d4] text-white text-[clamp(0.75rem,2.5vw,0.8rem)] font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
               >
                 <KeyRound className="w-4 h-4 shrink-0" />
                 <span className="truncate">Conectar seu Token do GitHub para Iniciar</span>
@@ -547,7 +547,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={handleEnableDemo}
-                className="w-full sm:w-auto px-3.5 py-2.5 bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white text-[clamp(0.75rem,2.5vw,0.8rem)] font-medium rounded-lg transition-colors border border-[#30363d] flex items-center justify-center gap-1.5 cursor-pointer text-center"
+                className="w-full sm:w-auto px-3.5 py-2.5 bg-[#15223d] hover:bg-[#1e293b] text-slate-300 hover:text-white text-[clamp(0.75rem,2.5vw,0.8rem)] font-medium rounded-lg transition-colors border border-[#1e293b] flex items-center justify-center gap-1.5 cursor-pointer text-center"
               >
                 <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                 <span className="truncate">Testar Primeiro em Modo Simulação</span>
@@ -584,7 +584,7 @@ export default function App() {
                     </h4>
                     <p className="text-xs text-amber-300/90 leading-relaxed">
                       Detectado arquivo massivo de dados (ex: API com ~10 milhões de produtos da Shopee consumindo centenas de MB). 
-                      Para <strong>proteger a memória RAM do seu navegador contra travamentos (V8)</strong> e <strong>respeitar a cota rígida de 100 MB por arquivo da API do GitHub</strong>, este arquivo foi automaticamente isolado do envio e adicionado ao <code className="text-white font-mono bg-black/40 px-1 py-0.5 rounded">.gitignore</code>.
+                      Para <strong>proteger a memória RAM do seu navegador contra travamentos (V8)</strong> e <strong>respeitar a cota rígida de 100 MB por arquivo da API do GitHub</strong>, este arquivo foi automaticamente isolado do envio e adicionado ao <code className="text-white font-mono bg-[#0b1220]/40 px-1 py-0.5 rounded">.gitignore</code>.
                     </p>
                     <div className="text-[11px] text-amber-400/80 pt-1 flex flex-wrap gap-x-4 gap-y-1 font-mono">
                       <span>✓ Código-fonte e dependências preservados</span>
@@ -630,25 +630,25 @@ export default function App() {
             )}
 
             {!currentZip && (
-              <div className="p-6 rounded-xl bg-[#161b22] border border-[#30363d] text-left space-y-4">
+              <div className="p-6 rounded-xl bg-[#111c33] border border-[#1e293b] text-left space-y-4">
                 <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-emerald-400" />
+                  <Layers className="w-4 h-4 text-cyan-400" />
                   <span>Como funciona o fluxo espontâneo</span>
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-400">
-                  <div className="p-3 rounded-lg bg-[#0d1117] border border-[#30363d] space-y-1">
+                  <div className="p-3 rounded-lg bg-[#0b1220] border border-[#1e293b] space-y-1">
                     <span className="font-semibold text-slate-200 block">1. Arraste o ZIP</span>
                     <p className="text-[11px] leading-relaxed">
                       Selecione ou solte o arquivo do projeto (.zip).
                     </p>
                   </div>
-                  <div className="p-3 rounded-lg bg-[#0d1117] border border-[#30363d] space-y-1">
+                  <div className="p-3 rounded-lg bg-[#0b1220] border border-[#1e293b] space-y-1">
                     <span className="font-semibold text-slate-200 block">2. Filtro Automático</span>
                     <p className="text-[11px] leading-relaxed">
                       Remove node_modules, .env e arquivos de sistema.
                     </p>
                   </div>
-                  <div className="p-3 rounded-lg bg-[#0d1117] border border-[#30363d] space-y-1">
+                  <div className="p-3 rounded-lg bg-[#0b1220] border border-[#1e293b] space-y-1">
                     <span className="font-semibold text-slate-200 block">3. Push Espontâneo</span>
                     <p className="text-[11px] leading-relaxed">
                       Cria o repo e gera o commit diretamente no GitHub.
@@ -701,7 +701,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[#30363d] bg-[#161b22] py-6 text-center text-xs text-slate-500">
+      <footer className="border-t border-[#1e293b] bg-[#111c33] py-6 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© 2026 ZipToGit · Publicador Automático de Arquivos ZIP para GitHub</p>
           <div className="flex items-center gap-4 text-slate-400">

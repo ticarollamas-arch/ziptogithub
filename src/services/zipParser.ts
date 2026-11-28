@@ -1081,7 +1081,7 @@ export async function createSampleZip(): Promise<File> {
 
   zip.file(
     'src/styles.css',
-    `body {\n  font-family: sans-serif;\n  background: #0d1117;\n  color: #fff;\n  margin: 0;\n  padding: 2rem;\n}\n`
+    `body {\n  font-family: sans-serif;\n  background: #0b1220;\n  color: #fff;\n  margin: 0;\n  padding: 2rem;\n}\n`
   );
 
   zip.file('.gitignore', `node_modules/\n.DS_Store\n.env\ndist/\nbuild/\n`);
