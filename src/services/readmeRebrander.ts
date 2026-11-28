@@ -182,6 +182,8 @@ export async function rebrandReadmeFile(
       }),
     });
 
+    if (res.status === 401) window.location.href = '/entrar?next=/';
+    if (res.status === 402) window.location.href = '/precos?assinatura=inativa';
     if (res.ok) {
       const data: ReadmeRebrandResult = await res.json();
       const updatedFiles = updateFilesWithReadme(files, data.refactoredContent);

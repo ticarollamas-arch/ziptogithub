@@ -85,6 +85,8 @@ export async function analyzeProjectArchitecture(
   });
 
   if (!response.ok) {
+  if (response.status === 401) { window.location.href = '/entrar?next=/'; }
+  if (response.status === 402) { window.location.href = '/precos?assinatura=inativa'; }
     const errorJson = await response.json().catch(() => ({}));
     throw new Error(errorJson.error || `Erro HTTP ${response.status} ao analisar arquitetura.`);
   }

@@ -6,7 +6,7 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
-    envPrefix: ['VITE_', 'NVIDIA_'],
+    envPrefix: ['VITE_'], // nunca expor chaves (NVIDIA_ etc.) no JavaScript público
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

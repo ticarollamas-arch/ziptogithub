@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Entrar</title>
+  <link rel="stylesheet" href="/kit/kit.css">
+  <script src="/kit-config.js"></script>
+  <script src="/kit/kit.js" defer></script>
+  <script src="/kit/entrar.js" defer></script>
+</head>
+<body>
+  <main class="section">
+    <div class="wrap-sm">
+      <div class="card anim-up">
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" id="t-login" aria-selected="true" aria-controls="f-login">Entrar</button>
+          <button class="tab" role="tab" id="t-first" aria-selected="false" aria-controls="f-first">Primeiro acesso / nova senha</button>
+        </div>
+        <div id="msg" class="alert hidden" role="alert"></div>
+
+        <form id="f-login" class="stack" novalidate>
+          <div class="field"><label for="le">E-mail</label><input id="le" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="lp">Senha</label><input id="lp" type="password" autocomplete="current-password" required></div>
+          <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+          <p class="small muted" style="margin:0">Ainda não é cliente? <a href="/precos">Ver planos</a></p>
+        </form>
+
+        <form id="f-first" class="stack hidden" novalidate>
+          <p class="small muted" style="margin:0">Use o e-mail da compra e o código do pedido que chegou no e-mail da Kiwify ou Hotmart. Também serve para criar uma nova senha.</p>
+          <div class="field"><label for="fe">E-mail da compra</label><input id="fe" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="fo">Código do pedido / transação</label><input id="fo" type="text" autocomplete="off" spellcheck="false" required></div>
+          <div class="field"><label for="fp">Crie uma senha (mín. 8 caracteres)</label><input id="fp" type="password" autocomplete="new-password" minlength="8" required></div>
+          <button class="btn btn-primary btn-block" type="submit">Liberar meu acesso</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

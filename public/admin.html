@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/kit/kit.css">
+  <script src="/kit-config.js"></script>
+  <script src="/kit/kit.js" defer></script>
+  <script src="/kit/admin.js" defer></script>
+</head>
+<body>
+  <main class="wrap" style="padding:2rem 0">
+    <div class="row" style="margin-bottom:1.25rem">
+      <div>
+        <h1 style="font-size:1.5rem;margin:0">Painel administrativo</h1>
+        <p class="muted small" style="margin:0" id="who">Carregando…</p>
+      </div>
+      <span class="spacer"></span>
+      <button class="btn btn-sm btn-ghost" id="logoutAll" title="Encerra a sessão de admin em todos os aparelhos">Sair de todos os aparelhos</button>
+    </div>
+    <div id="msg" class="alert hidden" role="alert"></div>
+
+    <div class="grid grid-4" id="stats" style="margin-bottom:1.25rem"></div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="clientes" aria-selected="true">Clientes</button>
+      <button class="tab" role="tab" data-tab="planos" aria-selected="false">Planos e preços</button>
+      <button class="tab" role="tab" data-tab="integracoes" aria-selected="false">Kiwify / Hotmart</button>
+      <button class="tab" role="tab" data-tab="eventos" aria-selected="false">Eventos</button>
+    </div>
+
+    <section data-panel="clientes">
+      <div class="card" style="margin-bottom:1rem">
+        <h3>Liberar acesso manualmente</h3>
+        <form id="grantForm" class="row" style="align-items:flex-end">
+          <div style="flex:2;min-width:220px"><label for="gEmail">E-mail do cliente</label><input id="gEmail" type="email" required></div>
+          <div style="flex:1;min-width:160px"><label for="gPlan">Plano</label><select id="gPlan"></select></div>
+          <button class="btn btn-primary" type="submit">Liberar</button>
+        </form>
+      </div>
+      <div class="row" style="margin-bottom:.75rem"><input id="search" type="text" placeholder="Buscar por e-mail…" style="max-width:320px"></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>E-mail</th><th>Status</th><th>Plano</th><th>Origem</th><th>Válido até</th><th>Conta</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+    </section>
+
+    <section data-panel="planos" class="hidden">
+      <p class="muted small">Edite nomes, preços, recursos e os links de checkout. O ID do produto liga a compra ao plano (define a validade: mensal, anual…). Clique em <strong>Salvar planos</strong> no fim.</p>
+      <div id="planList" class="grid grid-2"></div>
+      <div class="row" style="margin-top:1rem">
+        <button class="btn" id="addPlan">+ Adicionar plano</button>
+        <span class="spacer"></span>
+        <a class="btn btn-ghost" href="/precos" target="_blank" rel="noopener">Ver página de preços</a>
+        <button class="btn btn-primary" id="savePlans">Salvar planos</button>
+      </div>
+    </section>
+
+    <section data-panel="integracoes" class="hidden">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Kiwify <span id="kStatus"></span></h3>
+          <ol class="steps small" style="margin-top:.75rem">
+            <li>Kiwify → Apps → Webhooks → Criar webhook.</li>
+            <li>Cole a URL abaixo e marque: compra aprovada, reembolso, chargeback, assinatura cancelada e renovada.</li>
+            <li>Copie o <strong>token</strong> do webhook para a variável <code>KIWIFY_TOKEN</code> na Vercel.</li>
+            <li>Em Produto → Configurações, use a página de obrigado abaixo.</li>
+          </ol>
+          <label>URL do webhook</label><div class="copy"><input id="kUrl" readonly><button class="btn btn-sm" data-copy="kUrl">Copiar</button></div>
+        </div>
+        <div class="card">
+          <h3>Hotmart <span id="hStatus"></span></h3>
+          <ol class="steps small" style="margin-top:.75rem">
+            <li>Hotmart → Ferramentas → Webhook (API e notificações) → Cadastrar (versão 2.0.0).</li>
+            <li>Cole a URL abaixo e marque: aprovada, completa, reembolsada, chargeback, cancelada, protesto, cancelamento de assinatura.</li>
+            <li>Copie o <strong>Hottok</strong> para a variável <code>HOTMART_HOTTOK</code> na Vercel.</li>
+            <li>No produto, configure a página de obrigado abaixo.</li>
+          </ol>
+          <label>URL do webhook</label><div class="copy"><input id="hUrl" readonly><button class="btn btn-sm" data-copy="hUrl">Copiar</button></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <label>Página de obrigado (pós-pagamento)</label><div class="copy"><input id="tyUrl" readonly><button class="btn btn-sm" data-copy="tyUrl">Copiar</button></div>
+      </div>
+    </section>
+
+    <section data-panel="eventos" class="hidden">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Quando</th><th>Tipo</th><th>E-mail</th><th>Origem</th><th>Pedido / evento</th></tr></thead>
+        <tbody id="evRows"></tbody>
+      </table></div>
+    </section>
+  </main>
+</body>
+</html>
